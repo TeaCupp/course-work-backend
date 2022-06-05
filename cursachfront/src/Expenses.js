@@ -17,6 +17,7 @@ export default class Expenses extends Component {
         option: {id:1, name: 'Purchase'},
         category : {id:1 , name:'Travel'},
         expenses:124,
+        sum: 0
     }
 
 
@@ -64,6 +65,7 @@ export default class Expenses extends Component {
         let item={...this.state.item};
         item[name] = value;
         this.setState({item});
+        console.log(item);
     }
 
     handleCategoryChange(event){
@@ -136,14 +138,14 @@ export default class Expenses extends Component {
                 <option value={category.id} key={category.id}>
                     {category.name}
                 </option>
-            )
+            );
 
         let optionList2 =
             Options.map( (option) =>
                 <option value={option.id} key={option.id}>
                     {option.name}
                 </option>
-            )
+            );
 
             let rows =
                 Expenses.map(expense =>
@@ -202,7 +204,7 @@ export default class Expenses extends Component {
                         <div className="row">
                             <FormGroup className={"col-md-4 mb-3"}>
                                 <Label for="expenses">Expense</Label>
-                                <Input type="text" name="expenses" id="expenses" onChange={this.handleChange}/>
+                                <Input type="text" name="sum" id="expenses" onChange={this.handleChange}/>
                             </FormGroup>
                         </div>
 
