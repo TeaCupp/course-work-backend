@@ -32,6 +32,8 @@ public class CategoryController {
         Optional<Category> category = categoryRepository.findById(id);
         return category.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
+        
     }
 
 
