@@ -10,17 +10,6 @@ import Moment from "react-moment";
 
 export default class Expenses extends Component {
 
-// {
-//     "id": 100,
-//     "expensedate": "2019-06-16T17:00:00Z",
-//     "description": "New York Trip",
-//     "location": "New York",
-//     "category": {
-//         "id": 1,
-//         "name": "Travel"
-//     }
-// },
-
     emptyItem = {
         description : '',
         expensedate : new Date(),
@@ -85,10 +74,6 @@ export default class Expenses extends Component {
         const category = this.state.Categories.find(category => category.id === value);
         item['category'] = {id: value, name: category.name};
         this.setState({item});
-        console.log('category change');
-        console.log(target);
-        console.log(value);
-        console.log(item);
     }
 
     handleOptionChange(event){
@@ -99,11 +84,6 @@ export default class Expenses extends Component {
         const option = this.state.Options.find(option => option.id === value);
         item['option'] = {id: value, name: option.name};
         this.setState({item});
-        console.log('option change');
-        console.log(target);
-        console.log(value);
-        console.log(item);
-        console.log(target.name);
     }
 
     handleDateChange(date){
@@ -123,7 +103,6 @@ export default class Expenses extends Component {
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
         this.setState({Options : bodyOpt, isLoading : false});
-        console.log(bodyExp);
     }
 
 
