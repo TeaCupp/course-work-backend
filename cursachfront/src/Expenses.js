@@ -26,7 +26,9 @@ export default class Expenses extends Component {
         expensedate : new Date(),
         id:104,
         location : '',
-        category : {id:1 , name:'Travel'}
+        option: '',
+        category : {id:1 , name:'Travel'},
+        expenses:124,
     }
 
 
@@ -37,6 +39,7 @@ export default class Expenses extends Component {
             isLoading : false,
             Categories : [],
             Expenses : [],
+            Options: [],
             date : new Date(),
             item : this.emptyItem
         }
@@ -88,6 +91,9 @@ export default class Expenses extends Component {
         const responseExp = await fetch('/api/expenses');
         const bodyExp = await responseExp.json();
         this.setState({Expenses : bodyExp, isLoading : false});
+        const responseOpt = await fetch('/api/options');
+        const bodyOpt = await responseOpt.json();
+        this.setState({Options : bodyOpt, isLoading : false});
     }
 
 
@@ -109,15 +115,24 @@ export default class Expenses extends Component {
     render() {
         const title= <h3>Add Expense</h3>;
         const {Categories} = this.state;
-        const {Expenses, isLoading} = this.state;
+        const {isLoading} = this.state;
+        const {Expenses} = this.state;
+        const {Options} = this.state;
 
         if(isLoading)
             return(<div>Loading....</div>)
 
-        let optionList =
+        let optionList1 =
             Categories.map( (category) =>
                 <option value={category.id} key={category.id}>
                     {category.name}
+                </option>
+            )
+
+        let optionList2 =
+            Options.map( (option) =>
+                <option value={option.id} key={option.id}>
+                    {option.name}
                 </option>
             )
 
@@ -127,7 +142,9 @@ export default class Expenses extends Component {
                         <td>{expense.description}</td>
                         <td>{expense.location}</td>
                         <td><Moment date={expense.expensedate} foemat="YYYY/MM/DD"/></td>
+                        <td>{expense.option.name}</td>
                         <td>{expense.category.name}</td>
+                        <td>{expense.expenses}</td>
                         <td><Button size="sm" color="danger" onClick={ () => this.remove(expense.id)}>Delete</Button></td>
                     </tr>
 
@@ -148,11 +165,21 @@ export default class Expenses extends Component {
                         <FormGroup>
                             <Label for="category">Category</Label>
                             <select>
-                                {optionList}
+                                {optionList1}
                             </select>
                         </FormGroup>
 
- `                       <FormGroup>
+
+                        <FormGroup>
+                            <Label for="option">Purchase or receipt</Label>
+                            <select>
+                                {optionList2}
+                            </select>
+                        </FormGroup>
+
+
+
+                        <FormGroup>
                             <Label for="city">Date</Label>
                             <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/>
                         </FormGroup>
@@ -162,6 +189,13 @@ export default class Expenses extends Component {
                             <Label for="location">Location</Label>
                             <Input type="text" name="location" id="location" onChange={this.handleChange}/>
                         </FormGroup>
+                        </div>
+
+                        <div className="row">
+                            <FormGroup className={"col-md-4 mb-3"}>
+                                <Label for="expenses">Expense</Label>
+                                <Input type="text" name="expenses" id="expenses" onChange={this.handleChange}/>
+                            </FormGroup>
                         </div>
 
                         <FormGroup>
@@ -182,7 +216,9 @@ export default class Expenses extends Component {
                                 <th width="30%">Description</th>
                                 <th width="10%">Location</th>
                                 <th> Date</th>
+                                <th> Option </th>
                                 <th> Category</th>
+                                <th> Expenses </th>
                                 <th width="10%">Action</th>
                             </tr>
                         </thead>
