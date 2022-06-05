@@ -47,6 +47,8 @@ export default class Expenses extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleCategoryChange = this.handleCategoryChange.bind(this);
+        this.handleOptionChange = this.handleOptionChange.bind(this);
 
     }
 
@@ -74,7 +76,35 @@ export default class Expenses extends Component {
         let item={...this.state.item};
         item[name] = value;
         this.setState({item});
+    }
+
+    handleCategoryChange(event){
+        const target = event.target;
+        const value = parseInt(target.value, 10);
+        let item={...this.state.item};
+        console.log(this.state.Categories);
+        const category = this.state.Categories.find(category => category.id === value);
+        item['category'] = {id: value, name: category.name};
+        this.setState({item});
+        console.log('category change');
+        console.log(target);
+        console.log(value);
         console.log(item);
+    }
+
+    handleOptionChange(event){
+        const target = event.target;
+        const value = parseInt(target.value, 10);
+        let item={...this.state.item};
+        console.log(this.state.Options);
+        const option = this.state.Options.find(option => option.id === value);
+        item['option'] = {id: value, name: option.name};
+        this.setState({item});
+        console.log('option change');
+        console.log(target);
+        console.log(value);
+        console.log(item);
+        console.log(target.name);
     }
 
     handleDateChange(date){
@@ -90,7 +120,6 @@ export default class Expenses extends Component {
 
         const responseExp = await fetch('/api/expenses');
         const bodyExp = await responseExp.json();
-        console.log(bodyExp);
         this.setState({Expenses : bodyExp, isLoading : false});
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
@@ -165,15 +194,14 @@ export default class Expenses extends Component {
 
                         <FormGroup>
                             <Label for="category">Category</Label>
-                            <select>
+                            <select onChange={this.handleCategoryChange}>
                                 {optionList1}
                             </select>
                         </FormGroup>
 
-
                         <FormGroup>
                             <Label for="option">Purchase or receipt</Label>
-                            <select>
+                            <select onChange={this.handleOptionChange}>
                                 {optionList2}
                             </select>
                         </FormGroup>
