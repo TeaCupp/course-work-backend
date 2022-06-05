@@ -24,7 +24,6 @@ export default class Expenses extends Component {
     emptyItem = {
         description : '',
         expensedate : new Date(),
-        id:104,
         location : '',
         option: {id:1, name: 'Purchase'},
         category : {id:1 , name:'Travel'},
