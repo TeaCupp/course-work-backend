@@ -26,7 +26,7 @@ export default class Expenses extends Component {
         expensedate : new Date(),
         id:104,
         location : '',
-        option: '',
+        option: {id:1, name: 'Purchase'},
         category : {id:1 , name:'Travel'},
         expenses:124,
     }
@@ -124,6 +124,7 @@ export default class Expenses extends Component {
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
         this.setState({Options : bodyOpt, isLoading : false});
+        console.log(bodyExp);
     }
 
 
