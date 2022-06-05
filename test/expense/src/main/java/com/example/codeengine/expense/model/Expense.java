@@ -25,6 +25,8 @@ public class Expense {
 
     private String location;
 
+    @ManyToOne
+    private Option option;
 
     @ManyToOne
     private Category category;

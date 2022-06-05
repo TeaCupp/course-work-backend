@@ -14,9 +14,9 @@ insert into category values (9, 'Travelling')
 insert into category values (10, 'Healthy')
 insert into category values (11, 'Entertainment')
 
-insert into expense values (100, 'New York Trip', '2019-06-16T17:00:00.00Z', 'New York', 1,1)
-insert into expense values (101, 'Ford Mustang Payment', '2019-06-15T15:00:00.00Z', 'Los Angeles', 2,2)
-insert into expense values (102, 'Grand Canyon Trip With Family', '2019-06-15T15:00:00.00Z', 'Arizona', 3,1)
-
 insert into option values (1, 'Purchase')
 insert into option values (2, 'Receipt')
+
+insert into expense values (100, 'New York Trip', '2019-06-16T17:00:00.00Z', 'New York', 1,1, 1)
+insert into expense values (101, 'Ford Mustang Payment', '2019-06-15T15:00:00.00Z', 'Los Angeles', 2,1, 2)
+insert into expense values (102, 'Grand Canyon Trip With Family', '2019-06-15T15:00:00.00Z', 'Arizona', 3,1, 1)
