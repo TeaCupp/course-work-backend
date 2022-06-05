@@ -90,6 +90,7 @@ export default class Expenses extends Component {
 
         const responseExp = await fetch('/api/expenses');
         const bodyExp = await responseExp.json();
+        console.log(bodyExp);
         this.setState({Expenses : bodyExp, isLoading : false});
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
@@ -144,7 +145,7 @@ export default class Expenses extends Component {
                         <td><Moment date={expense.expensedate} foemat="YYYY/MM/DD"/></td>
                         <td>{expense.option.name}</td>
                         <td>{expense.category.name}</td>
-                        <td>{expense.expenses}</td>
+                        <td>{expense.sum}</td>
                         <td><Button size="sm" color="danger" onClick={ () => this.remove(expense.id)}>Delete</Button></td>
                     </tr>
 

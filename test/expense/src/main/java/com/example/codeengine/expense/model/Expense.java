@@ -35,4 +35,6 @@ public class Expense {
     @ManyToOne
     private User user;
 
+    private Double sum;
+
 }
