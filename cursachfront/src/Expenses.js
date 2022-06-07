@@ -121,6 +121,18 @@ export default class Expenses extends Component {
             });
     }
 
+    async redact(id){
+        await fetch(`/api/expenses/${id}`, {
+            method: 'EDIT',
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            }
+        }).then(() => {
+            let updatedExpenses = [...this.state.Expenses].filter(i => i.id !== id);
+            this.setState({Expenses : updatedExpenses});
+        });
+    }
 
 
     render() {
@@ -157,6 +169,7 @@ export default class Expenses extends Component {
                         <td>{expense.category.name}</td>
                         <td>{expense.sum}</td>
                         <td><Button size="sm" color="danger" onClick={ () => this.remove(expense.id)}>Delete</Button></td>
+                        <td><Button size="sm" color="success" onClick={ () => this.remove(expense.id)}>Edit</Button></td>
                     </tr>
 
                 );
@@ -229,7 +242,8 @@ export default class Expenses extends Component {
                                 <th> Option </th>
                                 <th> Category</th>
                                 <th> Expenses </th>
-                                <th width="10%">Action</th>
+                                <th width="10%">Delete</th>
+                                <th width="10%">Edit</th>
                             </tr>
                         </thead>
                         <tbody>
