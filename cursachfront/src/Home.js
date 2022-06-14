@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import AppNav from "./AppNav";
 import Chart from 'react-apexcharts'
 import "bootstrap/dist/css/bootstrap.css";
+import './App.css';
+import {Helmet} from 'react-helmet';
 
 
 
@@ -33,6 +35,9 @@ class Home extends Component{
             <h2 style={{display: 'flex', justifyContent:'center', alignItem:'center', height: '100vh'}}>
             <h2><Chart options={this.state.options} series={this.state.series} type="bar" width={500} height={320} /></h2>
             </h2>
+                <Helmet>
+                    <style>{'body { background-color: lightblue; }'}</style>
+                </Helmet>
             </div>
 
 

@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 import {Link} from "react-router-dom";
 import Moment from "react-moment";
+import {Helmet} from "react-helmet";
 
 
 export default class Expenses extends Component {
@@ -40,6 +41,8 @@ export default class Expenses extends Component {
         this.handleOptionChange = this.handleOptionChange.bind(this);
 
     }
+
+
 
     async handleSubmit(event){
 
@@ -121,18 +124,6 @@ export default class Expenses extends Component {
             });
     }
 
-    async redact(id){
-        await fetch(`/api/expenses/${id}`, {
-            method: 'EDIT',
-            headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            }
-        }).then(() => {
-            let updatedExpenses = [...this.state.Expenses].filter(i => i.id !== id);
-            this.setState({Expenses : updatedExpenses});
-        });
-    }
 
 
     render() {
@@ -159,6 +150,13 @@ export default class Expenses extends Component {
                 </option>
             );
 
+        let optionList3 =
+            Expenses.map( (expense) =>
+                <option value={expense.id} key={expense.id}>
+                    {expense.expensedate} {expense.description}  {expense.location} {expense.option.name} {expense.category} {expense.sum}
+                </option>
+            );
+
             let rows =
                 Expenses.map(expense =>
                     <tr key={expense.id}>
@@ -175,7 +173,10 @@ export default class Expenses extends Component {
                 );
 
         return (
+
+
             <div>
+
                 <AppNav/>
                 <Container>
                     {title}
@@ -253,7 +254,9 @@ export default class Expenses extends Component {
 
                 </Container>
                 }
-
+                <Helmet>
+                    <style>{'body { background-color: lightcyan; }'}</style>
+                </Helmet>
             </div>
 
         )

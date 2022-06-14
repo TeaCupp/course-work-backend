@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AppNav from "./AppNav";
+import {Helmet} from "react-helmet";
 
 
 class Category extends Component {
@@ -31,6 +32,9 @@ class Category extends Component {
                             </div>
                         )
                     }
+                    <Helmet>
+                        <style>{'body { background-color: lavender; }'}</style>
+                    </Helmet>
 
                 </div>
         );
