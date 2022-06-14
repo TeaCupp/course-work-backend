@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AppNav from "./AppNav";
 import {Helmet} from "react-helmet";
+import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 
 
 class Category extends Component {
@@ -21,21 +22,29 @@ class Category extends Component {
             return(<div>Loading...</div>);
 
 
+        let optionList1 =
+            Categories.map( (category) =>
+                <option value={category.id} key={category.id}>
+                    {category.name}
+                </option>
+            );
+
         return(
                 <div>
                     <AppNav/>
+                    <Container>
                     <h2>Categories</h2>
-                    {
-                        Categories.map( category =>
-                            <div id={category.id}>
-                                {category.name}
-                            </div>
-                        )
-                    }
+
+                        <FormGroup>
+                            <Label for="category">Category</Label>
+                            <select onChange={this.handleCategoryChange}>
+                                {optionList1}
+                            </select>
+                        </FormGroup>
                     <Helmet>
                         <style>{'body { background-color: lavender; }'}</style>
                     </Helmet>
-
+                    </Container>
                 </div>
         );
     }
