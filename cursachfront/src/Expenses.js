@@ -159,6 +159,7 @@ export default class Expenses extends Component {
 
             let rows =
                 Expenses.map(expense =>
+
                     <tr key={expense.id}>
                         <td>{expense.description}</td>
                         <td>{expense.location}</td>
@@ -233,9 +234,20 @@ export default class Expenses extends Component {
                 {''}
                 <Container>
 
-                    <h3>Expense List</h3>
                     <Table className="mt-4">
                         <thead>
+                        <tr>
+                            <th><select onChange={this.handleCategoryChange}>
+                                {optionList1}
+                            </select></th>
+                            <th><Label for="city">Start Date</Label>
+                                <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/></th>
+                            <th><Label for="city">End Date</Label>
+                                <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/></th>
+                        </tr>
+
+                        <h3>  </h3>
+                        <h3>Expense List</h3>
                             <tr>
                                 <th width="30%">Description</th>
                                 <th width="10%">Location</th>
