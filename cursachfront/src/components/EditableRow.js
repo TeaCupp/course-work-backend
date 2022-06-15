@@ -66,7 +66,7 @@ const EditableRow = ({
             <td>
                 <FormGroup>
                     <Button color="primary" type="submit">Save</Button>{' '}
-                    <Button color="secondary" tag={Link} to="/">Cancel</Button>{' '}
+                    <Button color="secondary">Cancel</Button>{' '}
                 </FormGroup>
             </td>
         </tr>

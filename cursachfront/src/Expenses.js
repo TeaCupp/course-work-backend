@@ -157,15 +157,6 @@ export default class Expenses extends Component {
                 </option>
             );
 
-        let optionList3 =
-            Expenses.map( (expense) =>
-                <option value={expense.id} key={expense.id}>
-                    {expense.expensedate} {expense.description}  {expense.location} {expense.option.name} {expense.category} {expense.sum}
-                </option>
-            );
-
-
-
         return (
 
 
@@ -242,7 +233,7 @@ export default class Expenses extends Component {
                         <tbody>
                             { Expenses.map((expense) => (
                                 <Fragment>
-                                    <EditableRow handleSubmit={this.handleSubmit}/>
+                                    <EditableRow handleSubmit={this.handleSubmit} optionList1={optionList1} optionList2={optionList2}/>
                                     <ReadOnlyRow expense={expense} handleSubmit={this.handleSubmit} remove={this.remove}/>
                                 </Fragment>
                             ))}
