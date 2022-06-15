@@ -51,7 +51,7 @@ const EditableRow = ({
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="location">Location</Label>
-                        <Input type="text" name="location" required="required" placeholder="Enter location...." id="location" onChange={handleChange}/>
+                        <Input style={{width: 200}} type="text" name="location" required="required" placeholder="Enter location...." id="location" onChange={handleChange} />
                     </FormGroup>
                 </div>
             </td>
@@ -59,7 +59,7 @@ const EditableRow = ({
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="expenses">Expense</Label>
-                        <Input type="text" name="sum" required="required" placeholder="Enter expense sum...." id="expenses" onChange={handleChange}/>
+                        <Input style={{width: 200}} type="text" name="sum" required="required" placeholder="Enter expense sum...." id="expenses" onChange={handleChange}/>
                     </FormGroup>
                 </div>
             </td>
