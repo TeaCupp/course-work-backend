@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, {useState, Component, Fragment} from "react";
 import AppNav from "./AppNav";
 import DatePicker from 'react-datepicker';
 import './App.css'
@@ -7,6 +7,10 @@ import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstra
 import {Link} from "react-router-dom";
 import Moment from "react-moment";
 import {Helmet} from "react-helmet";
+import ReadOnlyRow from "./components/ReadOnlyRow";
+import EditableRow from "./components/EditableRow";
+
+
 
 
 export default class Expenses extends Component {
@@ -97,6 +101,7 @@ export default class Expenses extends Component {
         this.setState({item});
     }
 
+
     async componentDidMount() {
         const response = await fetch('/api/categories');
         const body = await response.json();
@@ -123,6 +128,7 @@ export default class Expenses extends Component {
                 this.setState({Expenses : updatedExpenses});
             });
     }
+
 
 
 
@@ -157,21 +163,7 @@ export default class Expenses extends Component {
                 </option>
             );
 
-            let rows =
-                Expenses.map(expense =>
 
-                    <tr key={expense.id}>
-                        <td>{expense.description}</td>
-                        <td>{expense.location}</td>
-                        <td><Moment date={expense.expensedate} foemat="YYYY/MM/DD"/></td>
-                        <td>{expense.option.name}</td>
-                        <td>{expense.category.name}</td>
-                        <td>{expense.sum}</td>
-                        <td><Button size="sm" color="danger" onClick={ () => this.remove(expense.id)}>Delete</Button></td>
-                        <td><Button size="sm" color="success" onClick={ () => this.remove(expense.id)}>Edit</Button></td>
-                    </tr>
-
-                );
 
         return (
 
@@ -184,7 +176,7 @@ export default class Expenses extends Component {
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label for="description">Title</Label>
-                            <Input type="description" name="description" id="description"
+                            <Input type="description" name="description" required="required" placeholder="Enter location...." id="description"
                                    onChange={this.handleChange} autoComplete="name"/>
                         </FormGroup>
 
@@ -212,14 +204,14 @@ export default class Expenses extends Component {
                         <div className="row">
                         <FormGroup className={"col-md-4 mb-3"}>
                             <Label for="location">Location</Label>
-                            <Input type="text" name="location" id="location" onChange={this.handleChange}/>
+                            <Input type="text" name="location" required="required" placeholder="Enter location...." id="location" onChange={this.handleChange}/>
                         </FormGroup>
                         </div>
 
                         <div className="row">
                             <FormGroup className={"col-md-4 mb-3"}>
                                 <Label for="expenses">Expense</Label>
-                                <Input type="text" name="sum" id="expenses" onChange={this.handleChange}/>
+                                <Input type="text" name="sum" required="required" placeholder="Enter expense sum...." id="expenses" onChange={this.handleChange}/>
                             </FormGroup>
                         </div>
 
@@ -233,21 +225,9 @@ export default class Expenses extends Component {
 
                 {''}
                 <Container>
-
-                    <Table className="mt-4">
+                <form>
+                    <Table className="app-container">
                         <thead>
-                        <tr>
-                            <th><select onChange={this.handleCategoryChange}>
-                                {optionList1}
-                            </select></th>
-                            <th><Label for="city">Start Date</Label>
-                                <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/></th>
-                            <th><Label for="city">End Date</Label>
-                                <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/></th>
-                        </tr>
-
-                        <h3>  </h3>
-                        <h3>Expense List</h3>
                             <tr>
                                 <th width="30%">Description</th>
                                 <th width="10%">Location</th>
@@ -255,14 +235,19 @@ export default class Expenses extends Component {
                                 <th> Option </th>
                                 <th> Category</th>
                                 <th> Expenses </th>
-                                <th width="10%">Delete</th>
-                                <th width="10%">Edit</th>
+                                <th> Actions </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {rows}
+                            { Expenses.map((expense) => (
+                                <Fragment>
+                                    <EditableRow handleSubmit={this.handleSubmit}/>
+                                    <ReadOnlyRow expense={expense} handleSubmit={this.handleSubmit}/>
+                                </Fragment>
+                            ))}
                         </tbody>
                     </Table>
+                </form>
 
                 </Container>
                 }
