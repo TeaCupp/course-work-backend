@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import {Button} from "reactstrap";
 
-const ReadOnlyRow = ({ expense, handleSubmit, }) => {
+const ReadOnlyRow = ({ expense, handleSubmit, remove }) => {
     return (
         <tr>
             <td>{expense.description}</td>
@@ -20,7 +20,7 @@ const ReadOnlyRow = ({ expense, handleSubmit, }) => {
                 >
                     Edit
                 </button>
-                <Button size="sm" color="danger" onClick={ () => this.remove(expense.id)}>Delete</Button>
+                <Button size="sm" color="danger" onClick={ () => remove(expense.id)}>Delete</Button>
             </td>
         </tr>
     );

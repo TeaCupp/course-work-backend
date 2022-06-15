@@ -43,6 +43,7 @@ export default class Expenses extends Component {
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.remove = this.remove.bind(this);
 
     }
 
@@ -242,7 +243,7 @@ export default class Expenses extends Component {
                             { Expenses.map((expense) => (
                                 <Fragment>
                                     <EditableRow handleSubmit={this.handleSubmit}/>
-                                    <ReadOnlyRow expense={expense} handleSubmit={this.handleSubmit}/>
+                                    <ReadOnlyRow expense={expense} handleSubmit={this.handleSubmit} remove={this.remove}/>
                                 </Fragment>
                             ))}
                         </tbody>
