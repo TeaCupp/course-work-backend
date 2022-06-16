@@ -342,8 +342,8 @@ export default class Expenses extends Component {
                             <Table className="app-container">
                                 <thead>
                                 <tr>
-                                    <th width="30%">Description</th>
-                                    <th width="10%">Location</th>
+                                    <th>Description</th>
+                                    <th>Location</th>
                                     <th> Date</th>
                                     <th> Option</th>
                                     <th> Category</th>
