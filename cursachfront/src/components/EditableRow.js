@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,17 +8,74 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const EditableRow = ({
                          handleSubmit,
-                         handleCategoryChange,
                          optionList1,
-                         handleOptionChange,
                          optionList2,
-                         handleDateChange,
-                         handleChange,
-                        handleItemChange,
-                        cancelEdit
+                         cancelEdit,
+                         expense,
+                         categories,
+                         options
                      }) => {
 
+    const handleEditFormChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        let item = {...editFormData};
+        item[name] = value;
+        setEditFormData(item);
+        console.log(name);
+        console.log(value);
+        console.log(item);
+    };
 
+    const handleExpenseFormChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        let item = {...editFormData};
+        item['expenses'] = value;
+        setEditFormData(item);
+        console.log(value);
+        console.log(item);
+    };
+
+
+    const handleCategoryChange = (event) => {
+        const target = event.target;
+        const value = parseInt(target.value, 10);
+        let item = editFormData;
+        const category = categories.find(category => category.id === value);
+        item['category'] = {id: value, name: category.name};
+        setEditFormData(item);
+        console.log(editFormData);
+    }
+
+    const handleOptionChange = (event) => {
+        const target = event.target;
+        const value = parseInt(target.value, 10);
+        let item = editFormData;
+        const option = options.find(option => option.id === value);
+        item['option'] = {id: value, name: option.name};
+        setEditFormData(item);
+        console.log(editFormData);
+    }
+
+    const handleDateChange= (date) => {
+        let item = {...editFormData};
+        item.expensedate = date;
+        setEditFormData(item);
+        console.log(editFormData);
+    }
+
+
+    const [editFormData, setEditFormData] = useState({
+            id: expense.id,
+            description: expense.description,
+            expensedate: new Date(expense.expensedate),
+            location: expense.location,
+            option: expense.option,
+            category: expense.category,
+            expenses: expense.sum,
+        });
 
     return (
         <tr className="trExpense">
@@ -26,8 +83,15 @@ const EditableRow = ({
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
                         <Label for="description">Description</Label>
-                        <Input type="description" name="description" required="required" placeholder="Enter description...." id="description"
-                               onChange={handleChange} autoComplete="name"/>
+                        <Input value={editFormData.description}
+                               type="description"
+                               name="description"
+                               required="required"
+                               placeholder="Enter description...."
+                               id="description"
+                               onChange={handleEditFormChange}
+                               autoComplete="name"
+                        />
                     </FormGroup>
                 </Form>
             </td>
@@ -35,14 +99,23 @@ const EditableRow = ({
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="location">Location</Label>
-                        <Input style={{width: 200}} type="text" name="location" required="required" placeholder="Enter location...." id="location" onChange={handleChange} />
+                        <Input value={editFormData.location}
+                               style={{width: 200}}
+                               type="text"
+                               name="location"
+                               required="required"
+                               placeholder="Enter location...."
+                               id="location"
+                               onChange={handleEditFormChange}
+                        />
                     </FormGroup>
                 </div>
             </td>
             <td className="tdExpense">
                 <FormGroup>
                     <Label for="city">Date</Label>
-                    <DatePicker  onChange={handleDateChange}/>
+                    <DatePicker selected={editFormData.expensedate}
+                                onChange={handleDateChange}/>
                 </FormGroup>
             </td>
             <td className="tdExpense">
@@ -65,7 +138,15 @@ const EditableRow = ({
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="expenses">Expense</Label>
-                        <Input style={{width: 200}} type="text" name="sum" required="required" placeholder="Enter expense sum...." id="expenses" onChange={handleChange}/>
+                        <Input style={{width: 200}}
+                               value={editFormData.expenses}
+                               type="number"
+                               name="sum"
+                               required="required"
+                               placeholder="Enter expense sum...."
+                               id="expenses"
+                               onChange={handleExpenseFormChange}
+                        />
                     </FormGroup>
                 </div>
             </td>

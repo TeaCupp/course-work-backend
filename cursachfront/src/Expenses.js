@@ -185,83 +185,6 @@ export default class Expenses extends Component {
                 </option>
             );
 
-            // const [expenses, setExpenses] = useState(data);
-            // const [addFormData, setAddFormData] = useState({
-            //     isLoading: false,
-            //     Categories: [],
-            //     Expenses: [],
-            //     Options: [],
-            //     date: new Date(),
-            //     item: this.emptyItem
-            // });
-            //
-            // const [editFormData, setEditFormData] = useState({
-            //     isLoading: false,
-            //     Categories: [],
-            //     Expenses: [],
-            //     Options: [],
-            //     date: new Date(),
-            //     item: this.emptyItem
-            // });
-            //
-            // const [editExpenseId, setEditExpenseId] = useState(null);
-
-
-
-            // const handleEditFormChange = (event) => {
-            //     event.preventDefault();
-            //
-            //     const fieldName = event.target.getAttribute("name");
-            //     const fieldValue = event.target.value;
-            //
-            //     const newFormData = {...editFormData};
-            //     newFormData[fieldName] = fieldValue;
-            //
-            //     setEditFormData(newFormData);
-            // };
-            //
-            //
-            // const handleEditFormSubmit = (event) => {
-            //     event.preventDefault();
-            //
-            //     const editedExpense = {
-            //         id: editExpenseId,
-            //         description: editFormData.description,
-            //         expensedate: editFormData.expensedate,
-            //         location: editFormData.location,
-            //         category: editFormData.category,
-            //         expenses: editFormData.expenses,
-            //         sum: editFormData.sum,
-            //     };
-            //
-            //     const newExpense = [...expenses];
-            //
-            //     const index = expenses.findIndex((contact) => contact.id === editExpenseId);
-            //
-            //     newExpense[index] = editedExpense;
-            //
-            //     setExpenses(newExpense);
-            //     setEditExpenseId(null);
-            // };
-            //
-            // const handleEditClick = (event, expense) => {
-            //     event.preventDefault();
-            //     setEditExpenseId(expense.id);
-            //
-            //     const formValues = {
-            //         id: editExpenseId,
-            //         description: editFormData.description,
-            //         expensedate: editFormData.expensedate,
-            //         location: editFormData.location,
-            //         category: editFormData.category,
-            //         expenses: editFormData.expenses,
-            //         sum: editFormData.sum,
-            //     };
-            //
-            //     setEditFormData(formValues);
-            // };
-
-
             return (
 
 
@@ -346,7 +269,10 @@ export default class Expenses extends Component {
                                             <EditableRow handleSubmit={this.handleSubmit}
                                                          optionList1={optionList1}
                                                          optionList2={optionList2}
-                                                         cancelEdit={this.cancelEdit}/>
+                                                         cancelEdit={this.cancelEdit}
+                                                         expense={expense}
+                                                         categories={this.state.Categories}
+                                                         options={this.state.Options}/>
                                         ) : (
                                             <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
                                                          remove={this.remove}/>
