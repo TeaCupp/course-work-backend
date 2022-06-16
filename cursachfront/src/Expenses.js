@@ -333,8 +333,8 @@ export default class Expenses extends Component {
                             </thead>
                             <tbody>
 
-                            {this.state.FilteredExpenses.map((expense) => (
-                                <Fragment>
+                            {this.state.FilteredExpenses.map((expense, k) => (
+                                <Fragment key={k}>
                                     {
                                         this.state.editExpenseId === expense.id ? (
                                             <EditableRow handleSubmit={this.handleSubmit}
