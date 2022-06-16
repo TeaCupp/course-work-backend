@@ -1,7 +1,10 @@
 import React from "react";
 import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 import DatePicker from "react-datepicker";
-import {Link} from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
+
+
+
 
 const EditableRow = ({
                          handleSubmit,
@@ -10,8 +13,10 @@ const EditableRow = ({
                          handleOptionChange,
                          optionList2,
                          handleDateChange,
-                         handleChange
+                         handleChange,
+                        handleItemChange
                      }) => {
+
 
 
     return (
@@ -44,7 +49,7 @@ const EditableRow = ({
             <td>
                 <FormGroup>
                     <Label for="city">Date</Label>
-                    <DatePicker onChange={handleDateChange}/>
+                    <DatePicker  onChange={handleDateChange}/>
                 </FormGroup>
             </td>
             <td>
