@@ -84,81 +84,61 @@ const EditableRow = ({
     return (
         <tr className="trExpense">
             <td className="tdExpense">
-                <Form onSubmit={handleEditSubmit}>
-                    <FormGroup>
-                        <Label for="description">Description</Label>
-                        <Input value={editFormData.description}
-                               type="description"
-                               name="description"
-                               required="required"
-                               placeholder="Enter description...."
-                               id="description"
-                               onChange={handleEditFormChange}
-                               autoComplete="name"
-                        />
-                    </FormGroup>
-                </Form>
+                <Label for="description">Description</Label>
+                <Input value={editFormData.description}
+                       type="description"
+                       name="description"
+                       required="required"
+                       placeholder="Enter description...."
+                       id="description"
+                       onChange={handleEditFormChange}
+                       autoComplete="name"
+                />
             </td>
             <td className="tdExpense">
-                <div className="row">
-                    <FormGroup className={"col-md-4 mb-3"}>
-                        <Label for="location">Location</Label>
-                        <Input value={editFormData.location}
-                               style={{width: 200}}
-                               type="text"
-                               name="location"
-                               required="required"
-                               placeholder="Enter location...."
-                               id="location"
-                               onChange={handleEditFormChange}
-                        />
-                    </FormGroup>
-                </div>
+                <Label for="location">Location</Label>
+                <Input value={editFormData.location}
+                       style={{width: 100}}
+                       type="text"
+                       name="location"
+                       required="required"
+                       placeholder="Enter location...."
+                       id="location"
+                       onChange={handleEditFormChange}
+                />
             </td>
             <td className="tdExpense">
-                <FormGroup>
-                    <Label for="city">Date</Label>
-                    <DatePicker selected={editFormData.expensedate}
-                                onChange={handleDateChange}/>
-                </FormGroup>
+                <Label for="city">Date</Label>
+                <DatePicker selected={editFormData.expensedate}
+                            onChange={handleDateChange}/>
             </td>
             <td className="tdExpense">
-                <FormGroup>
-                    <Label for="option">Purchase or receipt</Label>
-                    <select onChange={handleOptionChange}>
-                        {optionList2}
-                    </select>
-                </FormGroup>
+                <Label for="option">Purchase or receipt</Label>
+                <select onChange={handleOptionChange}>
+                    {optionList2}
+                </select>
             </td>
             <td className="tdExpense">
-                <FormGroup>
-                    <Label for="category">Category</Label>
-                    <select onChange={handleCategoryChange}>
-                        {optionList1}
-                    </select>
-                </FormGroup>
+                <Label for="category">Category</Label>
+                <select onChange={handleCategoryChange}>
+                    {optionList1}
+                </select>
             </td>
             <td className="tdExpense">
-                <div className="row">
-                    <FormGroup className={"col-md-4 mb-3"}>
-                        <Label for="expenses">Expense</Label>
-                        <Input style={{width: 200}}
-                               value={editFormData.expenses}
-                               type="number"
-                               name="sum"
-                               required="required"
-                               placeholder="Enter expense sum...."
-                               id="expenses"
-                               onChange={handleExpenseFormChange}
-                        />
-                    </FormGroup>
-                </div>
+                <Label for="expenses">Expense</Label>
+                <Input style={{width: 80}}
+                       value={editFormData.expenses}
+                       type="number"
+                       name="sum"
+                       required="required"
+                       placeholder="Enter expense sum...."
+                       id="expenses"
+                       onChange={handleExpenseFormChange}
+                />
             </td>
             <td className="tdExpense">
-                <FormGroup>
-                    <Button color="primary" type="submit" onClick={handleEditSubmit}>Save</Button>{' '}
-                    <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
-                </FormGroup>
+                <Button color="primary" onClick={handleEditSubmit}>Save</Button>{' '}
+                <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
             </td>
         </tr>
     );
