@@ -1,16 +1,13 @@
-import React, {useState, Component, Fragment, useEffect} from "react";
+import React, {Component, Fragment} from "react";
 import AppNav from "./AppNav";
 import DatePicker from 'react-datepicker';
 import './App.css'
 import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 import {Link} from "react-router-dom";
-import Moment from "react-moment";
 import {Helmet} from "react-helmet";
 import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
-import data from "bootstrap/js/src/dom/data";
-import nanoid from "nanoid";
 
 
 
@@ -230,7 +227,7 @@ export default class Expenses extends Component {
                             <FormGroup>
                                 <Label for="description">Title</Label>
                                 <Input type="description" name="description" required="required"
-                                       placeholder="Enter location...." id="description"
+                                       placeholder="Enter title...." id="description"
                                        onChange={this.handleChange} autoComplete="name"/>
                             </FormGroup>
 

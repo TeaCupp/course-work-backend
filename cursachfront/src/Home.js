@@ -1,6 +1,5 @@
 import React, {Component, useState} from "react";
 import AppNav from "./AppNav";
-import Chart from 'react-apexcharts'
 import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
 import {Helmet} from 'react-helmet';
@@ -87,7 +86,7 @@ export default function Home() {
                 </svg>
             </h2>
                 <Helmet>
-                    <style>{'body { background-color: lightblue; }'}</style>
+                    <style>{'body { background-color: lightcyan; }'}</style>
                 </Helmet>
             </div>
 
