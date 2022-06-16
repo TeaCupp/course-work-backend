@@ -55,6 +55,22 @@ td {
   font-size: 15px;
 }
 
+.trHead {
+  display: flex;
+}
+
+.thHead {
+  flex: 1;
+}
+
+.trExpense {
+  display: flex;
+}
+
+.tdExpense {
+  flex: 1;
+}
+
 th {
   background-color: rgb(117, 201, 250);
 }

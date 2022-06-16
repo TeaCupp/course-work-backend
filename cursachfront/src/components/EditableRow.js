@@ -21,39 +21,17 @@ const EditableRow = ({
 
 
     return (
-        <tr>
-            <td>
+        <tr className="trExpense">
+            <td className="tdExpense">
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
-                        <Label for="description">Title</Label>
-                        <Input type="description" name="description" required="required" placeholder="Enter location...." id="description"
+                        <Label for="description">Description</Label>
+                        <Input type="description" name="description" required="required" placeholder="Enter description...." id="description"
                                onChange={handleChange} autoComplete="name"/>
                     </FormGroup>
                 </Form>
             </td>
-            <td>
-                <FormGroup>
-                    <Label for="category">Category</Label>
-                    <select onChange={handleCategoryChange}>
-                        {optionList1}
-                    </select>
-                </FormGroup>
-            </td>
-            <td>
-                <FormGroup>
-                    <Label for="option">Purchase or receipt</Label>
-                    <select onChange={handleOptionChange}>
-                        {optionList2}
-                    </select>
-                </FormGroup>
-            </td>
-            <td>
-                <FormGroup>
-                    <Label for="city">Date</Label>
-                    <DatePicker  onChange={handleDateChange}/>
-                </FormGroup>
-            </td>
-            <td>
+            <td className="tdExpense">
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="location">Location</Label>
@@ -61,7 +39,29 @@ const EditableRow = ({
                     </FormGroup>
                 </div>
             </td>
-            <td>
+            <td className="tdExpense">
+                <FormGroup>
+                    <Label for="city">Date</Label>
+                    <DatePicker  onChange={handleDateChange}/>
+                </FormGroup>
+            </td>
+            <td className="tdExpense">
+                <FormGroup>
+                    <Label for="option">Purchase or receipt</Label>
+                    <select onChange={handleOptionChange}>
+                        {optionList2}
+                    </select>
+                </FormGroup>
+            </td>
+            <td className="tdExpense">
+                <FormGroup>
+                    <Label for="category">Category</Label>
+                    <select onChange={handleCategoryChange}>
+                        {optionList1}
+                    </select>
+                </FormGroup>
+            </td>
+            <td className="tdExpense">
                 <div className="row">
                     <FormGroup className={"col-md-4 mb-3"}>
                         <Label for="expenses">Expense</Label>
@@ -69,7 +69,7 @@ const EditableRow = ({
                     </FormGroup>
                 </div>
             </td>
-            <td>
+            <td className="tdExpense">
                 <FormGroup>
                     <Button color="primary" type="submit">Save</Button>{' '}
                     <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}

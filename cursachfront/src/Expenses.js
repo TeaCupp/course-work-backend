@@ -341,14 +341,14 @@ export default class Expenses extends Component {
                         <form>
                             <Table className="app-container">
                                 <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>Location</th>
-                                    <th> Date</th>
-                                    <th> Option</th>
-                                    <th> Category</th>
-                                    <th> Expenses</th>
-                                    <th> Actions</th>
+                                <tr className="trHead">
+                                    <th className="thHead">Description</th>
+                                    <th className="thHead">Location</th>
+                                    <th className="thHead"> Date</th>
+                                    <th className="thHead"> Option</th>
+                                    <th className="thHead"> Category</th>
+                                    <th className="thHead"> Expenses</th>
+                                    <th className="thHead"> Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>

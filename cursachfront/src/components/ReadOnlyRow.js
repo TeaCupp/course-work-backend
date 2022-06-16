@@ -4,16 +4,16 @@ import {Button} from "reactstrap";
 
 const ReadOnlyRow = ({ expense, handleSubmit, remove }) => {
     return (
-        <tr>
-            <td>{expense.description}</td>
-            <td>{expense.location}</td>
-            <td><Moment date={expense.expensedate} foemat="YYYY/MM/DD"/></td>
-            <td>{expense.option.name}</td>
-            <td>{expense.category.name}</td>
-            <td>{expense.sum}</td>
+        <tr className="trExpense">
+            <td className="tdExpense">{expense.description}</td>
+            <td className="tdExpense">{expense.location}</td>
+            <td className="tdExpense"><Moment date={expense.expensedate} foemat="YYYY/MM/DD"/></td>
+            <td className="tdExpense">{expense.option.name}</td>
+            <td className="tdExpense">{expense.category.name}</td>
+            <td className="tdExpense">{expense.sum}</td>
 
 
-            <td>
+            <td className="tdExpense">
                 <button
                     type="button"
                     onClick={(event) => handleSubmit(event, expense)}
