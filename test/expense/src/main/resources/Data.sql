@@ -14,6 +14,8 @@ insert into category values (9, 'Travelling')
 insert into category values (10, 'Healthy')
 insert into category values (11, 'Entertainment')
 
+
+
 insert into option values (1, 'Purchase')
 insert into option values (2, 'Receipt')
 
