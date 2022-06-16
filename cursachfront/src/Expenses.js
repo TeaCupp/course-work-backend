@@ -260,20 +260,7 @@ export default class Expenses extends Component {
             //
             //     setEditFormData(formValues);
             // };
-            //
-            // const handleCancelClick = () => {
-            //     setEditExpenseId(null);
-            // };
-            //
-            // const handleDeleteClick = (ExpenseId) => {
-            //     const newExpense = [...expenses];
-            //
-            //     const index = expenses.findIndex((expense) => expense.id === expense.Id);
-            //
-            //     newExpense.splice(index, 1);
-            //
-            //     setExpenses(newExpense);
-            // };
+
 
             return (
 
