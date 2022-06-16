@@ -38,6 +38,13 @@ export default class Expenses extends Component {
         ));
     }
 
+    cancelEdit = () => {
+        this.setState(state => ({
+            ...state,
+            editExpenseId: null
+        }));
+    }
+
 
     constructor(props) {
         super(props)
@@ -350,8 +357,10 @@ export default class Expenses extends Component {
                                     <Fragment>
                                         {
                                             this.state.editExpenseId === expense.id ? (
-                                                <EditableRow handleSubmit={this.handleSubmit} optionList1={optionList1}
-                                                             optionList2={optionList2}/>
+                                                <EditableRow handleSubmit={this.handleSubmit}
+                                                             optionList1={optionList1}
+                                                             optionList2={optionList2}
+                                                cancelEdit={this.cancelEdit}/>
                                             ) : (
                                                 <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
                                                              remove={this.remove}/>

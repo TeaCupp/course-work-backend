@@ -14,7 +14,8 @@ const EditableRow = ({
                          optionList2,
                          handleDateChange,
                          handleChange,
-                        handleItemChange
+                        handleItemChange,
+                        cancelEdit
                      }) => {
 
 
@@ -71,7 +72,7 @@ const EditableRow = ({
             <td>
                 <FormGroup>
                     <Button color="primary" type="submit">Save</Button>{' '}
-                    <Button color="secondary">Cancel</Button>{' '}
+                    <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
                 </FormGroup>
             </td>
         </tr>
