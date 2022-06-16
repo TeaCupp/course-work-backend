@@ -7,7 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const EditableRow = ({
-                         handleSubmit,
                          optionList1,
                          optionList2,
                          cancelEdit,
@@ -37,6 +36,11 @@ const EditableRow = ({
         console.log(value);
         console.log(item);
     };
+
+    const handleEditSubmit = () => {
+        console.log("Edit request is sent!!!");
+        cancelEdit();
+    }
 
 
     const handleCategoryChange = (event) => {
@@ -80,7 +84,7 @@ const EditableRow = ({
     return (
         <tr className="trExpense">
             <td className="tdExpense">
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleEditSubmit}>
                     <FormGroup>
                         <Label for="description">Description</Label>
                         <Input value={editFormData.description}
@@ -152,7 +156,7 @@ const EditableRow = ({
             </td>
             <td className="tdExpense">
                 <FormGroup>
-                    <Button color="primary" type="submit">Save</Button>{' '}
+                    <Button color="primary" type="submit" onClick={handleEditSubmit}>Save</Button>{' '}
                     <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
                 </FormGroup>
             </td>
