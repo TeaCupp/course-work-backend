@@ -21,7 +21,7 @@ const ReadOnlyRow = ({ expense, handleSubmit, remove }) => {
                     Edit
                 </button>
 
-                <Button size="sm" color="danger" onClick={ () => remove(expense.id)}>Delete</Button>
+                <Button size="sm" color="danger" onClick={ (event) => remove(event, expense.id)}>Delete</Button>
             </td>
         </tr>
     );

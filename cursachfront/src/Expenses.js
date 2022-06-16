@@ -29,6 +29,15 @@ export default class Expenses extends Component {
         sum: 0
     }
 
+    handleEdit = (event, expense) => {
+        event.preventDefault();
+        this.setState(state => ({
+                ...state,
+                editExpenseId: expense.id
+        }
+        ));
+    }
+
 
     constructor(props) {
         super(props)
@@ -39,7 +48,8 @@ export default class Expenses extends Component {
             Expenses: [],
             Options: [],
             date: new Date(),
-            item: this.emptyItem
+            item: this.emptyItem,
+            editExpenseId: null
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,9 +58,9 @@ export default class Expenses extends Component {
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.remove = this.remove.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
 
     }
-
 
     async handleSubmit(event) {
 
@@ -338,10 +348,15 @@ export default class Expenses extends Component {
 
                                 {Expenses.map((expense) => (
                                     <Fragment>
-                                        <EditableRow handleSubmit={this.handleSubmit} optionList1={optionList1}
-                                                     optionList2={optionList2}/>
-                                        <ReadOnlyRow expense={expense} handleSubmit={this.handleSubmit}
-                                                     remove={this.remove}/>
+                                        {
+                                            this.state.editExpenseId === expense.id ? (
+                                                <EditableRow handleSubmit={this.handleSubmit} optionList1={optionList1}
+                                                             optionList2={optionList2}/>
+                                            ) : (
+                                                <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
+                                                             remove={this.remove}/>
+                                            )
+                                        }
                                     </Fragment>
                                 ))}
                                 </tbody>
