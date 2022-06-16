@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import AppNav from "./AppNav";
 import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
@@ -7,14 +7,14 @@ import {Group} from "@visx/group";
 import {Pie} from "@visx/shape";
 import {Text} from "@visx/text";
 
-const coins = [
-    { symbol: "ADA", amount: 200, color: "#0033ad", inUSD: 1.48 },
-    { symbol: "SOL", amount: 5, color: "#ff69b4", inUSD: 37.6 },
-    { symbol: "BTC", amount: 0.005, color: "#32cd32", inUSD: 37363 },
-    { symbol: "BTC", amount: 0.005, color: "#d2691e", inUSD: 37363 },
-    { symbol: "BTC", amount: 0.005, color: "#006400", inUSD: 37363 },
-    { symbol: "BTC", amount: 0.005, color: "#8b0000", inUSD: 37363 },
-];
+// const coins = [
+//     { symbol: "ADA", amount: 200, color: "#0033ad", inUSD: 1.48 },
+//     { symbol: "SOL", amount: 5, color: "#ff69b4", inUSD: 37.6 },
+//     { symbol: "BTC", amount: 0.005, color: "#32cd32", inUSD: 37363 },
+//     { symbol: "BTC", amount: 0.005, color: "#d2691e", inUSD: 37363 },
+//     { symbol: "BTC", amount: 0.005, color: "#006400", inUSD: 37363 },
+//     { symbol: "BTC", amount: 0.005, color: "#8b0000", inUSD: 37363 },
+// ];
 
 export default function Home() {
     const [active, setActive] = useState(null);
@@ -22,14 +22,15 @@ export default function Home() {
     const half = width/2;
     console.log(12);
 
-    const [expenseSummary, setExpenseSummary] = useState({});
+    const [expenseSummary, setExpenseSummary] = useState([]);
 
     useEffect(() => {
         const getExpenseSummary = async () => {
             const responseExp = await fetch('/api/expensesSummary');
             const bodyExp = await responseExp.json();
             console.log(bodyExp);
-            setExpenseSummary(bodyExp);
+            let categories = Object.keys((bodyExp)).map((val, k) =>  {return {name: val, sum: bodyExp[val]}});
+            setExpenseSummary(categories);
         }
         getExpenseSummary();
     }, []);
@@ -39,19 +40,16 @@ export default function Home() {
         return (
             <div>
                 <AppNav/>
-                {
-                    Object.keys((expenseSummary)).map((val, k) =>  <h4 k={k}>{val} - {expenseSummary[val]}</h4>)
-                }
             <h2 style={{display: 'flex', justifyContent:'center', alignItem:'center', height: '100vh'}}>
 
                 <svg width={width} height={width}>
                     <Group top={half} left={half}>
                         <Pie
-                            data={coins}
-                            pieValue={(data) => data.amount * data.inUSD}
+                            data={expenseSummary}
+                            pieValue={(data) => data.sum}
                             outerRadius={half}
                             innerRadius={({data}) =>{
-                                const size = active && active.symbol === data.symbol ? 12 : 8;
+                                const size = 7;
                                 return half - size;
                             }}
                             padAngle={0.01}
@@ -73,26 +71,26 @@ export default function Home() {
 
                         {active ? ( <>
                                 <Text textAnchor="middle" fill="#000000" fontSize={55} dy={-20}>
-                                    {`$${Math.floor(active.amount * active.inUSD)}`}
+                                    {`${Math.floor(active.sum)} UAH`}
                                 </Text>
 
                                 <Text textAnchor="middle"
-                                      fill={active.color}
+                                      fill={"#8b0000"}
                                       fontSize={20}
                                       dy={20}>
-                                    {`${active.amount} ${active.symbol}`}
+                                    {`${active.name}`}
                                 </Text>
                             </>
                         ) : (
                             <>
                                 <Text textAnchor="middle" fill="#000000" fontSize={55} dy={-20}>
-                                    {`$${Math.floor(
-                                        coins.reduce((acc, coin) => acc + coin.amount * coin.inUSD, 0)
-                                    )}`}
+                                    {`${Math.floor(
+                                        expenseSummary.reduce((acc, category) => acc + category.sum, 0)
+                                    )} UAH`}
                                 </Text>
 
                                 <Text textAnchor="middle" fill="#aaa" fontSize={20} dy={20}>
-                                    {`${coins.length} Assets`}
+                                    {`${expenseSummary.filter(category => category.sum > 0).length} Categories`}
                                 </Text>
                             </>
                         )}
