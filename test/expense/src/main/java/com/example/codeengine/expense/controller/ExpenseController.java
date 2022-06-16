@@ -32,6 +32,7 @@ public class ExpenseController {
         return ResponseEntity.ok().build();
     }
 
+
     @PatchMapping("/expenses/{id}/{desctiption}")
     public ResponseEntity<Expense> updateDescription(@PathVariable Long id, @PathVariable String description) {
         try {
@@ -91,5 +92,15 @@ public class ExpenseController {
     ResponseEntity<Expense> createExpense(@Valid @RequestBody Expense expense) throws URISyntaxException{
         Expense result = expenseRepository.save(expense);
         return ResponseEntity.created(new URI("/api/expenses" + result.getId())).body(result);
+    }
+
+    @PutMapping("/expenses/{id}")
+    public ResponseEntity<Expense> updateCustomer(@RequestBody Expense expense) {
+
+        try {
+            return new ResponseEntity<Expense>(expenseRepository.save(expense), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

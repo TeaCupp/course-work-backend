@@ -37,8 +37,19 @@ const EditableRow = ({
         console.log(item);
     };
 
-    const handleEditSubmit = () => {
+    const handleEditSubmit = async () => {
+
+        await fetch(`/api/expenses/${editFormData.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({...editFormData,sum: editFormData.expenses}),
+        });
+
         console.log("Edit request is sent!!!");
+        window.location.reload();
         cancelEdit();
     }
 
