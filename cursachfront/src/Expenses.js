@@ -22,6 +22,8 @@ export default class Expenses extends Component {
     emptyItem = {
         description: '',
         expensedate: new Date(),
+        startdate: new Date(),
+        enddate: new Date(),
         location: '',
         option: {id: 1, name: 'Purchase'},
         category: {id: 1, name: 'Travel'},
@@ -54,8 +56,11 @@ export default class Expenses extends Component {
             Categories: [],
             Expenses: [],
             FilteredExpenses: [],
+            FilteredData: [],
             Options: [],
             date: new Date(),
+            startdate: new Date(),
+            enddate: new Date(),
             item: this.emptyItem,
             editExpenseId: null
         }
@@ -63,6 +68,8 @@ export default class Expenses extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.handleStartDateChange = this.handleStartDateChange.bind(this);
+        this.handleEndDateChange = this.handleEndDateChange.bind(this);
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.remove = this.remove.bind(this);
@@ -119,7 +126,19 @@ export default class Expenses extends Component {
 
     handleDateChange(date) {
         let item = {...this.state.item};
-        item.expensedate = date;
+        item.startdate = date;
+        this.setState({item});
+    }
+
+    handleStartDateChange(startdate) {
+        let item = {...this.state.item};
+        item.startdate = startdate;
+        this.setState({item});
+    }
+
+    handleEndDateChange(enddate) {
+        let item = {...this.state.item};
+        item.enddate = enddate;
         this.setState({item});
     }
 
@@ -136,6 +155,7 @@ export default class Expenses extends Component {
         const bodyOpt = await responseOpt.json();
         this.setState({Options: bodyOpt, isLoading: false});
         this.setState({FilteredExpenses:bodyExp});
+        this.setState({FilteredData:bodyExp});
     }
 
     async remove(id) {
@@ -259,12 +279,27 @@ export default class Expenses extends Component {
                         </Form>
                     </Container>
 
-                    <select onChange={this.filterCategoryChange}>
-                        <option value="All" key={-1}>
-                            All expenses
-                        </option>
-                        {optionsFilter}
-                    </select>
+                    <Container>
+                        <h3>Filters</h3>
+                        <select onChange={this.filterCategoryChange}>
+                            <option value="All" key={-1}>
+                                All expenses
+                            </option>
+                            {optionsFilter}
+                        </select>
+
+                        <FormGroup>
+                            <Label for="city">Date Start</Label>
+                            <DatePicker selected={this.state.item.startdate} onChange={this.handleStartDateChange}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="city">Date End</Label>
+                            <DatePicker selected={this.state.item.enddate} onChange={this.handleEndDateChange}/>
+                        </FormGroup>
+                    </Container>
+
+
+
                     {''}
                     <Container>
                         <Table className="app-container">
