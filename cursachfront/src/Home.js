@@ -7,14 +7,18 @@ import {Group} from "@visx/group";
 import {Pie} from "@visx/shape";
 import {Text} from "@visx/text";
 
-// const coins = [
-//     { symbol: "ADA", amount: 200, color: "#0033ad", inUSD: 1.48 },
-//     { symbol: "SOL", amount: 5, color: "#ff69b4", inUSD: 37.6 },
-//     { symbol: "BTC", amount: 0.005, color: "#32cd32", inUSD: 37363 },
-//     { symbol: "BTC", amount: 0.005, color: "#d2691e", inUSD: 37363 },
-//     { symbol: "BTC", amount: 0.005, color: "#006400", inUSD: 37363 },
-//     { symbol: "BTC", amount: 0.005, color: "#8b0000", inUSD: 37363 },
-// ];
+const category = [
+    { symbol: "Products", color: "#0033ad" },
+    { symbol: "Utilities", color: "#ff69b4" },
+    { symbol: "Pharmacy", color: "#32cd32" },
+    { symbol: "Clothes", color: "#8b0000" },
+    { symbol: "Technology", color: "#d2691e" },
+    { symbol: "Household", color: "#006400" },
+    { symbol: "Beauty", color: "#8b0000" },
+    { symbol: "Gifts", color: "#8b0000" },
+    { symbol: "Travelling", color: "#8b0000" },
+    { symbol: "Healthy", color: "#8b0000" },
+    { symbol: "Entertainment", color: "#8b0000" }];
 
 export default function Home() {
     const [active, setActive] = useState(null);
@@ -29,7 +33,12 @@ export default function Home() {
             const responseExp = await fetch('/api/expensesSummary');
             const bodyExp = await responseExp.json();
             console.log(bodyExp);
-            let categories = Object.keys((bodyExp)).map((val, k) =>  {return {name: val, sum: bodyExp[val]}});
+            let categories = Object.keys((bodyExp)).map((val, k) =>  {
+                let color = category.find(c => c.symbol === val);
+                console.log(color);
+                console.log(val);
+                return {name: val, sum: bodyExp[val], color: color.color}
+            });
             setExpenseSummary(categories);
         }
         getExpenseSummary();
@@ -70,12 +79,12 @@ export default function Home() {
 
 
                         {active ? ( <>
-                                <Text textAnchor="middle" fill="#000000" fontSize={55} dy={-20}>
+                                <Text textAnchor="middle" fill={active.color} fontSize={55} dy={-20}>
                                     {`${Math.floor(active.sum)} UAH`}
                                 </Text>
 
                                 <Text textAnchor="middle"
-                                      fill={"#8b0000"}
+                                      fill={active.color}
                                       fontSize={20}
                                       dy={20}>
                                     {`${active.name}`}
@@ -83,13 +92,13 @@ export default function Home() {
                             </>
                         ) : (
                             <>
-                                <Text textAnchor="middle" fill="#000000" fontSize={55} dy={-20}>
+                                <Text textAnchor="middle" fill="#00000" fontSize={55} dy={-20}>
                                     {`${Math.floor(
                                         expenseSummary.reduce((acc, category) => acc + category.sum, 0)
                                     )} UAH`}
                                 </Text>
 
-                                <Text textAnchor="middle" fill="#aaa" fontSize={20} dy={20}>
+                                <Text textAnchor="middle" fill="#00000" fontSize={20} dy={20}>
                                     {`${expenseSummary.filter(category => category.sum > 0).length} Categories`}
                                 </Text>
                             </>
