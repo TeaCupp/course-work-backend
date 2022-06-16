@@ -168,96 +168,95 @@ export default class Expenses extends Component {
                 </option>
             );
 
-        const App = () => {
-            const [expenses, setExpenses] = useState(data);
-            const [addFormData, setAddFormData] = useState({
-                isLoading: false,
-                Categories: [],
-                Expenses: [],
-                Options: [],
-                date: new Date(),
-                item: this.emptyItem
-            });
-
-            const [editFormData, setEditFormData] = useState({
-                isLoading: false,
-                Categories: [],
-                Expenses: [],
-                Options: [],
-                date: new Date(),
-                item: this.emptyItem
-            });
-
-            const [editExpenseId, setEditExpenseId] = useState(null);
-
+            // const [expenses, setExpenses] = useState(data);
+            // const [addFormData, setAddFormData] = useState({
+            //     isLoading: false,
+            //     Categories: [],
+            //     Expenses: [],
+            //     Options: [],
+            //     date: new Date(),
+            //     item: this.emptyItem
+            // });
+            //
+            // const [editFormData, setEditFormData] = useState({
+            //     isLoading: false,
+            //     Categories: [],
+            //     Expenses: [],
+            //     Options: [],
+            //     date: new Date(),
+            //     item: this.emptyItem
+            // });
+            //
+            // const [editExpenseId, setEditExpenseId] = useState(null);
 
 
-            const handleEditFormChange = (event) => {
-                event.preventDefault();
 
-                const fieldName = event.target.getAttribute("name");
-                const fieldValue = event.target.value;
-
-                const newFormData = {...editFormData};
-                newFormData[fieldName] = fieldValue;
-
-                setEditFormData(newFormData);
-            };
-
-
-            const handleEditFormSubmit = (event) => {
-                event.preventDefault();
-
-                const editedExpense = {
-                    id: editExpenseId,
-                    description: editFormData.description,
-                    expensedate: editFormData.expensedate,
-                    location: editFormData.location,
-                    category: editFormData.category,
-                    expenses: editFormData.expenses,
-                    sum: editFormData.sum,
-                };
-
-                const newExpense = [...expenses];
-
-                const index = expenses.findIndex((contact) => contact.id === editExpenseId);
-
-                newExpense[index] = editedExpense;
-
-                setExpenses(newExpense);
-                setEditExpenseId(null);
-            };
-
-            const handleEditClick = (event, expense) => {
-                event.preventDefault();
-                setEditExpenseId(expense.id);
-
-                const formValues = {
-                    id: editExpenseId,
-                    description: editFormData.description,
-                    expensedate: editFormData.expensedate,
-                    location: editFormData.location,
-                    category: editFormData.category,
-                    expenses: editFormData.expenses,
-                    sum: editFormData.sum,
-                };
-
-                setEditFormData(formValues);
-            };
-
-            const handleCancelClick = () => {
-                setEditExpenseId(null);
-            };
-
-            const handleDeleteClick = (ExpenseId) => {
-                const newExpense = [...expenses];
-
-                const index = expenses.findIndex((expense) => expense.id === expense.Id);
-
-                newExpense.splice(index, 1);
-
-                setExpenses(newExpense);
-            };
+            // const handleEditFormChange = (event) => {
+            //     event.preventDefault();
+            //
+            //     const fieldName = event.target.getAttribute("name");
+            //     const fieldValue = event.target.value;
+            //
+            //     const newFormData = {...editFormData};
+            //     newFormData[fieldName] = fieldValue;
+            //
+            //     setEditFormData(newFormData);
+            // };
+            //
+            //
+            // const handleEditFormSubmit = (event) => {
+            //     event.preventDefault();
+            //
+            //     const editedExpense = {
+            //         id: editExpenseId,
+            //         description: editFormData.description,
+            //         expensedate: editFormData.expensedate,
+            //         location: editFormData.location,
+            //         category: editFormData.category,
+            //         expenses: editFormData.expenses,
+            //         sum: editFormData.sum,
+            //     };
+            //
+            //     const newExpense = [...expenses];
+            //
+            //     const index = expenses.findIndex((contact) => contact.id === editExpenseId);
+            //
+            //     newExpense[index] = editedExpense;
+            //
+            //     setExpenses(newExpense);
+            //     setEditExpenseId(null);
+            // };
+            //
+            // const handleEditClick = (event, expense) => {
+            //     event.preventDefault();
+            //     setEditExpenseId(expense.id);
+            //
+            //     const formValues = {
+            //         id: editExpenseId,
+            //         description: editFormData.description,
+            //         expensedate: editFormData.expensedate,
+            //         location: editFormData.location,
+            //         category: editFormData.category,
+            //         expenses: editFormData.expenses,
+            //         sum: editFormData.sum,
+            //     };
+            //
+            //     setEditFormData(formValues);
+            // };
+            //
+            // const handleCancelClick = () => {
+            //     setEditExpenseId(null);
+            // };
+            //
+            // const handleDeleteClick = (ExpenseId) => {
+            //     const newExpense = [...expenses];
+            //
+            //     const index = expenses.findIndex((expense) => expense.id === expense.Id);
+            //
+            //     newExpense.splice(index, 1);
+            //
+            //     setExpenses(newExpense);
+            // };
 
             return (
 
@@ -357,6 +356,5 @@ export default class Expenses extends Component {
                 </div>
 
             )
-        }
     }
 }
