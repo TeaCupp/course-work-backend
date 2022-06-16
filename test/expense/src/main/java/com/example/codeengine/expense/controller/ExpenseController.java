@@ -25,7 +25,7 @@ public class ExpenseController {
     List<Expense> getExpenses(){
         return expenseRepository.findAll();
     }
-    
+
 
     @DeleteMapping("/expenses/{id}")
     ResponseEntity<?> deleteExpense(@PathVariable Long id){

@@ -19,8 +19,8 @@ export default class Expenses extends Component {
     emptyItem = {
         description: '',
         expensedate: new Date(),
-        startdate: new Date(),
-        enddate: new Date(),
+        startdate: null,
+        enddate: null,
         location: '',
         option: {id: 1, name: 'Purchase'},
         category: {id: 1, name: 'Travel'},
@@ -53,13 +53,13 @@ export default class Expenses extends Component {
             Categories: [],
             Expenses: [],
             FilteredExpenses: [],
-            FilteredData: [],
             Options: [],
             date: new Date(),
-            startdate: new Date(),
-            enddate: new Date(),
+            startdate: null,
+            enddate: null,
             item: this.emptyItem,
-            editExpenseId: null
+            editExpenseId: null,
+            filterCategory: 'All',
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -78,6 +78,8 @@ export default class Expenses extends Component {
 
         const item = this.state.item;
 
+        console.log('POST');
+        console.log(item);
         await fetch('/api/expenses', {
             method: 'POST',
             headers: {
@@ -123,20 +125,39 @@ export default class Expenses extends Component {
 
     handleDateChange(date) {
         let item = {...this.state.item};
-        item.startdate = date;
-        this.setState({item});
+        item.expensedate = date;
+        this.setState({...this.state, item: item});
     }
 
     handleStartDateChange(startdate) {
-        let item = {...this.state.item};
-        item.startdate = startdate;
-        this.setState({item});
+        console.log(startdate);
+        this.state.startdate = startdate;
+        console.log(this.state)
+        this.updateFilteredExpenses();
     }
 
     handleEndDateChange(enddate) {
-        let item = {...this.state.item};
-        item.enddate = enddate;
-        this.setState({item});
+        this.state.enddate = enddate;
+        this.updateFilteredExpenses();
+    }
+
+    updateFilteredExpenses()
+    {
+        let filteredExpenses = this.state.Expenses;
+        if (this.state?.startdate) {
+            filteredExpenses = filteredExpenses
+                .filter(expense => new Date(expense.expensedate.toLocaleString()) >= this.state.startdate);
+        }
+        console.log(filteredExpenses);
+        if (this.state?.enddate) {
+            filteredExpenses = filteredExpenses
+                .filter(expense => new Date(expense.expensedate.toLocaleString()) <= this.state.enddate);
+        }
+        console.log(this.state.filterCategory);
+        if (this.state.filterCategory !== 'All') {
+            filteredExpenses = filteredExpenses.filter(expense => expense.category.id === this.state.filterCategory);
+        }
+        this.setState({...this.state, FilteredExpenses: filteredExpenses})
     }
 
 
@@ -156,6 +177,7 @@ export default class Expenses extends Component {
     }
 
     async remove(id) {
+        console.log(id);
         await fetch(`/api/expenses/${id}`, {
             method: 'DELETE',
             headers: {
@@ -171,17 +193,15 @@ export default class Expenses extends Component {
     filterCategoryChange = (event) => {
         const target = event.target;
         console.log(target.value);
-        if (target.value === "All") {
-            this.setState({...this.state, FilteredExpenses: this.state.Expenses});
+        if (target.value === 'All') {
+            this.state.filterCategory = 'All';
+            this.updateFilteredExpenses();
             return;
         }
         const value = parseInt(target.value, 10);
-        const category = this.state.Categories.find(category => category.id === value);
-        let filteredExpenses = this.state.Expenses.filter(expense => expense.category.name === category.name);
-        this.setState({...this.state, FilteredExpenses: filteredExpenses});
-        console.log(this.state.FilteredExpenses);
-        console.log(category.name);
-        console.log(this.state.Expenses);
+        this.state.filterCategory = value;
+
+        this.updateFilteredExpenses();
     }
 
 
@@ -287,11 +307,11 @@ export default class Expenses extends Component {
 
                         <FormGroup>
                             <Label for="city">Date Start</Label>
-                            <DatePicker selected={this.state.item.startdate} onChange={this.handleStartDateChange}/>
+                            <DatePicker selected={this.state?.startdate} onChange={this.handleStartDateChange}/>
                         </FormGroup>
                         <FormGroup>
                             <Label for="city">Date End</Label>
-                            <DatePicker selected={this.state.item.enddate} onChange={this.handleEndDateChange}/>
+                            <DatePicker selected={this.state?.enddate} onChange={this.handleEndDateChange}/>
                         </FormGroup>
                     </Container>
 
