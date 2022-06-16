@@ -338,40 +338,37 @@ export default class Expenses extends Component {
 
                     {''}
                     <Container>
-                        <form>
-                            <Table className="app-container">
-                                <thead>
-                                <tr className="trHead">
-                                    <th className="thHead">Description</th>
-                                    <th className="thHead">Location</th>
-                                    <th className="thHead"> Date</th>
-                                    <th className="thHead"> Option</th>
-                                    <th className="thHead"> Category</th>
-                                    <th className="thHead"> Expenses</th>
-                                    <th className="thHead"> Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                        <Table className="app-container">
+                            <thead>
+                            <tr className="trHead">
+                                <th className="thHead">Description</th>
+                                <th className="thHead">Location</th>
+                                <th className="thHead"> Date</th>
+                                <th className="thHead"> Option</th>
+                                <th className="thHead"> Category</th>
+                                <th className="thHead"> Expenses</th>
+                                <th className="thHead"> Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                                {Expenses.map((expense) => (
-                                    <Fragment>
-                                        {
-                                            this.state.editExpenseId === expense.id ? (
-                                                <EditableRow handleSubmit={this.handleSubmit}
-                                                             optionList1={optionList1}
-                                                             optionList2={optionList2}
-                                                cancelEdit={this.cancelEdit}/>
-                                            ) : (
-                                                <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
-                                                             remove={this.remove}/>
-                                            )
-                                        }
-                                    </Fragment>
-                                ))}
-                                </tbody>
-                            </Table>
-                        </form>
-
+                            {Expenses.map((expense) => (
+                                <Fragment>
+                                    {
+                                        this.state.editExpenseId === expense.id ? (
+                                            <EditableRow handleSubmit={this.handleSubmit}
+                                                         optionList1={optionList1}
+                                                         optionList2={optionList2}
+                                                         cancelEdit={this.cancelEdit}/>
+                                        ) : (
+                                            <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
+                                                         remove={this.remove}/>
+                                        )
+                                    }
+                                </Fragment>
+                            ))}
+                            </tbody>
+                        </Table>
                     </Container>
                     }
                     <Helmet>
