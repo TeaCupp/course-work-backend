@@ -53,6 +53,7 @@ export default class Expenses extends Component {
             isLoading: false,
             Categories: [],
             Expenses: [],
+            FilteredExpenses: [],
             Options: [],
             date: new Date(),
             item: this.emptyItem,
@@ -134,18 +135,8 @@ export default class Expenses extends Component {
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
         this.setState({Options: bodyOpt, isLoading: false});
+        this.setState({FilteredExpenses:bodyExp});
     }
-
-    handleItemChanged(i, event) {
-        var items = this.state.items;
-
-        items[i] = event.target.value;
-
-        this.setState({
-            items: items
-        });
-    }
-
 
     async remove(id) {
         await fetch(`/api/expenses/${id}`, {
@@ -160,12 +151,27 @@ export default class Expenses extends Component {
         });
     }
 
+    filterCategoryChange = (event) => {
+        const target = event.target;
+        console.log(target.value);
+        if (target.value === "All") {
+            this.setState({...this.state, FilteredExpenses: this.state.Expenses});
+            return;
+        }
+        const value = parseInt(target.value, 10);
+        const category = this.state.Categories.find(category => category.id === value);
+        let filteredExpenses = this.state.Expenses.filter(expense => expense.category.name === category.name);
+        this.setState({...this.state, FilteredExpenses: filteredExpenses});
+        console.log(this.state.FilteredExpenses);
+        console.log(category.name);
+        console.log(this.state.Expenses);
+    }
+
 
     render() {
         const title = <h3>Add Expense</h3>;
         const {Categories} = this.state;
         const {isLoading} = this.state;
-        const {Expenses} = this.state;
         const {Options} = this.state;
 
         if (isLoading)
@@ -182,6 +188,13 @@ export default class Expenses extends Component {
             Options.map((option) =>
                 <option value={option.id} key={option.id}>
                     {option.name}
+                </option>
+            );
+
+        let optionsFilter =
+            Categories.map((category) =>
+                <option value={category.id} key={category.id}>
+                    {category.name}
                 </option>
             );
 
@@ -246,6 +259,12 @@ export default class Expenses extends Component {
                         </Form>
                     </Container>
 
+                    <select onChange={this.filterCategoryChange}>
+                        <option value="All" key={-1}>
+                            All expenses
+                        </option>
+                        {optionsFilter}
+                    </select>
                     {''}
                     <Container>
                         <Table className="app-container">
@@ -262,7 +281,7 @@ export default class Expenses extends Component {
                             </thead>
                             <tbody>
 
-                            {Expenses.map((expense) => (
+                            {this.state.FilteredExpenses.map((expense) => (
                                 <Fragment>
                                     {
                                         this.state.editExpenseId === expense.id ? (
