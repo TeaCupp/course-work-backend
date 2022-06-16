@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import AppNav from "./AppNav";
 import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
@@ -22,12 +22,28 @@ export default function Home() {
     const half = width/2;
     console.log(12);
 
+    const [expenseSummary, setExpenseSummary] = useState({});
+
+    useEffect(() => {
+        const getExpenseSummary = async () => {
+            const responseExp = await fetch('/api/expensesSummary');
+            const bodyExp = await responseExp.json();
+            console.log(bodyExp);
+            setExpenseSummary(bodyExp);
+        }
+        getExpenseSummary();
+    }, []);
+
 
 
         return (
             <div>
                 <AppNav/>
+                {
+                    Object.keys((expenseSummary)).map((val, k) =>  <h4 k={k}>{val} - {expenseSummary[val]}</h4>)
+                }
             <h2 style={{display: 'flex', justifyContent:'center', alignItem:'center', height: '100vh'}}>
+
                 <svg width={width} height={width}>
                     <Group top={half} left={half}>
                         <Pie
