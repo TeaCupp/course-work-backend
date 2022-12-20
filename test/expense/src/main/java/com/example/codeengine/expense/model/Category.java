@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Data
 @Table(name="category")
 
-public class Department {
+public class Category {
 
     @Id
     @GeneratedValue

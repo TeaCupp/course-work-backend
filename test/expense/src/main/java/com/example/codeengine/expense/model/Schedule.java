@@ -35,7 +35,7 @@ public class Schedule {
     private Teacher teacher ;
 
     @ManyToOne
-    private Disciplines disciplines;
+    private Discipline disciplines;
 
     @ManyToOne
     private Group group;

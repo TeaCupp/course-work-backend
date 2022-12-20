@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Entity
 @Data
-@Table(name="disciplines")
-public class Disciplines {
+@Table(name="discipline")
+public class Discipline {
 
     @Id
     private Long id;

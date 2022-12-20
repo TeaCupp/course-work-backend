@@ -1,6 +1,5 @@
 package com.example.codeengine.expense.controller;
 
-import com.example.codeengine.expense.model.Category;
 import com.example.codeengine.expense.model.Department;
 import com.example.codeengine.expense.repository.DepartmentRepository;
 import org.springframework.http.HttpStatus;
