@@ -24,7 +24,7 @@ public class DisciplinesController {
     }
 
     @GetMapping("/disciplines")
-    Collection<Discipline> departments(){
+    Collection<Discipline> disciplines(){
         return disciplineRepository.findAll();
     }
 
@@ -51,7 +51,7 @@ public class DisciplinesController {
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/department/{id}")
+    @DeleteMapping("/discipline/{id}")
     ResponseEntity<?> deleteDiscipline(@PathVariable Long id){
         disciplineRepository.deleteById(id);
         return ResponseEntity.ok().build();
