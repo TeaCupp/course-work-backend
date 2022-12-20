@@ -38,22 +38,22 @@ public class DepartmentController {
     }
 
 
-    @PostMapping("/category")
-    ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) throws URISyntaxException {
-        Category result = categoryRepository.save(category);
-        return ResponseEntity.created(new URI("/api/category" + result.getId())).body(result);
+    @PostMapping("/department")
+    ResponseEntity<Department> createDepartment(@Valid @RequestBody Department department) throws URISyntaxException {
+        Department result = departmentRepository.save(department);
+        return ResponseEntity.created(new URI("/api/department" + result.getId())).body(result);
     }
 
 
-    @PutMapping("/category/{id}")
-    ResponseEntity<Category> updateCategory(@Valid @RequestBody Category category){
-        Category result = categoryRepository.save(category);
+    @PutMapping("/department/{id}")
+    ResponseEntity<Department> updateDepartment(@Valid @RequestBody Department department){
+        Department result = departmentRepository.save(department);
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/category/{id}")
-    ResponseEntity<?> deleteCategory(@PathVariable Long id){
-        categoryRepository.deleteById(id);
+    @DeleteMapping("/department/{id}")
+    ResponseEntity<?> deleteDepartment(@PathVariable Long id){
+        departmentRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 

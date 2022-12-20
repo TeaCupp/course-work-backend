@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +13,7 @@ import java.util.Set;
 @Data
 @Table(name="category")
 
-public class Category {
+public class Department {
 
     @Id
     @GeneratedValue

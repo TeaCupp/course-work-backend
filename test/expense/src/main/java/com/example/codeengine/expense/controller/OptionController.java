@@ -2,7 +2,6 @@ package com.example.codeengine.expense.controller;
 
 import com.example.codeengine.expense.model.Category;
 import com.example.codeengine.expense.model.Option;
-import com.example.codeengine.expense.repository.CategoryRepository;
 import com.example.codeengine.expense.repository.OptionRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
