@@ -13,4 +13,6 @@ public class FacultyController {
         super();
         this.facultyRepository = facultyRepository;
     }
+
+
 }
