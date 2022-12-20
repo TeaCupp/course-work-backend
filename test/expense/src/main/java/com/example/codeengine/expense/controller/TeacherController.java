@@ -1,2 +1,9 @@
-package com.example.codeengine.expense.controller;public class TeacherController {
+package com.example.codeengine.expense.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class TeacherController {
 }
