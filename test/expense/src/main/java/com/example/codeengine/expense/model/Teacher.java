@@ -1,5 +1,6 @@
 package com.example.codeengine.expense.model;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Teacher {
 
     private int group_id;
 
+    @NotNull
     private String name;
 
     private String email;
