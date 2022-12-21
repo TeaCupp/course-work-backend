@@ -17,7 +17,6 @@ public class Group {
     @Id
     private Long id;
 
-    private int department_id;
 
     @NotNull
     private String name;
