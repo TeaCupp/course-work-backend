@@ -15,7 +15,6 @@ import javax.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     @NotNull

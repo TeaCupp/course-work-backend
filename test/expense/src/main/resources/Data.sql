@@ -90,15 +90,16 @@ insert into groups values ( 8, 8, 'h', '1');
 insert into groups values ( 9, 9, 'e', '3');
 insert into groups values ( 10, 10, 'g', '2');
 
-insert into schedule values (default, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 12);
-insert into schedule values (default, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 11);
-insert into schedule values (default, 'University', 3, 3, 3, '2019-06-16T17:00:00.00Z', 10);
-insert into schedule values (default, 'University', 4, 4, 4, '2019-06-16T17:00:00.00Z', 9);
-insert into schedule values (default, 'University', 5, 5, 5, '2019-06-16T17:00:00.00Z', 8);
-insert into schedule values (default, 'University', 6, 6, 6, '2019-06-16T17:00:00.00Z', 7);
-insert into schedule values (default, 'University', 7, 7, 7, '2019-06-16T17:00:00.00Z', 2);
-insert into schedule values (default, 'University', 8, 8, 8, '2019-06-16T17:00:00.00Z', 4);
-insert into schedule values (default, 'University', 10, 10, 10, '2019-06-16T17:00:00.00Z', 2);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (1, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 12);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (2, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 11);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (3, 'University', 3, 3, 3, '2019-06-16T17:00:00.00Z', 10);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (4, 'University', 4, 4, 4, '2019-06-16T17:00:00.00Z', 9);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (5, 'University', 5, 5, 5, '2019-06-16T17:00:00.00Z', 8);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (6, 'University', 6, 6, 6, '2019-06-16T17:00:00.00Z', 7);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (7, 'University', 7, 7, 7, '2019-06-16T17:00:00.00Z', 2);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (8, 'University', 8, 8, 8, '2019-06-16T17:00:00.00Z', 4);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (9, 'University', 9, 9, 9, '2019-06-16T17:00:00.00Z', 8);
+insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (10, 'University', 10, 10, 10, '2019-06-16T17:00:00.00Z', 2);
 
 insert into student values (default, 1, 'Olena', 'Olena@gmail', '+380685463728');
 insert into student values (default, 2, 'Olena', 'Olena@gmail', '+380685463728');

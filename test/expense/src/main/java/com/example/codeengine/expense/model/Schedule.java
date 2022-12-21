@@ -16,7 +16,6 @@ import java.time.Instant;
 public class Schedule {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     @NotNull
