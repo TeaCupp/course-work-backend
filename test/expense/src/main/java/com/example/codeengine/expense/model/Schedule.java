@@ -42,7 +42,7 @@ public class Schedule {
     private Discipline disciplines;
 
 
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
             @JoinColumn(name="group_id", referencedColumnName="id")

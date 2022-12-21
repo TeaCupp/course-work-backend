@@ -18,8 +18,6 @@ public class Student {
     @GeneratedValue
     private Long id;
 
-    private int group_id;
-
     @NotNull
     private String name;
 
@@ -27,7 +25,10 @@ public class Student {
 
     private String phone;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="group_id", referencedColumnName="id")
+    })
     private Group group;
 
 }
