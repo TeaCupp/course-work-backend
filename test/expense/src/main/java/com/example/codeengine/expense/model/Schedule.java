@@ -22,22 +22,31 @@ public class Schedule {
     @NotNull
     private String name;
 
-    private int teacher_id;
-
-    private int discipline_id;
-
     private Instant time;
 
     private String classroom;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="teacher_id", referencedColumnName="id")
+    })
     private Teacher teacher ;
 
-    @ManyToOne
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="discipline_id", referencedColumnName="id")
+    })
     private Discipline disciplines;
 
-    @ManyToOne
+
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="group_id", referencedColumnName="id")
+    })
     private Group group;
 
 }
