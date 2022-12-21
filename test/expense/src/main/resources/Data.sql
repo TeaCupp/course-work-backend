@@ -91,16 +91,16 @@ insert into groups values ( 9, 9, 'e', '3');
 insert into groups values ( 10, 10, 'g', '2');
 
 
-insert into teacher values (1, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (2, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (3, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (4, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (5, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (6, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (7, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (8, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (9, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
-insert into teacher values (10, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (1, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (2, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (3, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (4, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (5, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (6, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (7, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (8, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (9, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
+insert into teacher (id, name, surname, email, phone) values (10, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
 
 insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (1, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 12);
 insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (2, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 11);
