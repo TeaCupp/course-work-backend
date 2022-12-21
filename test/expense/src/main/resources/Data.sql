@@ -57,16 +57,16 @@ insert into faculty values (8, 'Fashion faculty', 'FF')
 insert into faculty values (9, 'Ukrainian faculty', 'UF')
 insert into faculty values (10, 'Medicine faculty', 'MF')
 
-insert into department values ( 1, 1, 'English department', 'ED')
-insert into department values ( 2, 2, 'History department', 'HD')
-insert into department values ( 3, 3, 'Math department', 'MD')
-insert into department values ( 4, 4, 'Culture department', 'CD')
-insert into department values ( 5, 5, 'Dance department', 'DD')
-insert into department values ( 6, 6, 'Biology department', 'BD')
-insert into department values ( 7, 7, 'Programming department', 'PD')
-insert into department values ( 8, 8, 'Fashion department', 'FD')
-insert into department values ( 9, 9, 'Ukrainian department', 'UD')
-insert into department values ( 10, 10, 'Medicine department', 'MD')
+insert into department (id, faculty_id, name, short_name) values ( 1, 1, 'English department', 'ED');
+insert into department (id, faculty_id, name, short_name) values ( 2, 2, 'History department', 'HD');
+insert into department (id, faculty_id, name, short_name) values ( 3, 3, 'Math department', 'MD');
+insert into department (id, faculty_id, name, short_name) values ( 4, 4, 'Culture department', 'CD');
+insert into department (id, faculty_id, name, short_name) values ( 5, 5, 'Dance department', 'DD');
+insert into department (id, faculty_id, name, short_name) values ( 6, 6, 'Biology department', 'BD');
+insert into department (id, faculty_id, name, short_name) values ( 7, 7, 'Programming department', 'PD');
+insert into department (id, faculty_id, name, short_name) values ( 8, 8, 'Fashion department', 'FD');
+insert into department (id, faculty_id, name, short_name) values ( 9, 9, 'Ukrainian department', 'UD');
+insert into department (id, faculty_id, name, short_name) values ( 10, 10, 'Medicine department', 'MD');
 
 insert into disciplines values (1, 'English')
 insert into disciplines values (2, 'History')
