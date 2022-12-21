@@ -18,7 +18,7 @@ public class Teacher {
 
     @Id
     private Long id;
-    
+
 
     @NotNull
     private String name;

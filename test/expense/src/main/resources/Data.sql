@@ -113,16 +113,16 @@ insert into schedule (id, name, teacher_id, discipline_id, group_id, time, class
 insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (9, 'University', 9, 9, 9, '2019-06-16T17:00:00.00Z', 8);
 insert into schedule (id, name, teacher_id, discipline_id, group_id, time, classroom) values (10, 'University', 10, 10, 10, '2019-06-16T17:00:00.00Z', 2);
 
-insert into student values (default, 1, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 2, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 3, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 4, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 5, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 6, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 7, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 8, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 9, 'Olena', 'Olena@gmail', '+380685463728');
-insert into student values (default, 10, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (1, 1, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (2, 2, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (3, 3, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (4, 4, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (5, 5, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (6, 6, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (7, 7, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (8, 8, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (9, 9, 'Olena', 'Olena@gmail', '+380685463728');
+insert into student (id, group_id, name, email, phone) values (10, 10, 'Olena', 'Olena@gmail', '+380685463728');
 
 
 
