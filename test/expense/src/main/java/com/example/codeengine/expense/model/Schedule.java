@@ -20,6 +20,8 @@ public class Schedule {
 
     private int teacher_id;
 
+    private int discipline_id;
+
     @NotNull
     private String name;
 
@@ -27,14 +29,6 @@ public class Schedule {
 
     private String classroom;
 
-
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name="discipline_id", referencedColumnName="id")
-    })
-    private Discipline disciplines;
 
 
 

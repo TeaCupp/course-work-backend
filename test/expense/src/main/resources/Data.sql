@@ -68,16 +68,16 @@ insert into department (id, faculty_id, name, short_name) values ( 8, 8, 'Fashio
 insert into department (id, faculty_id, name, short_name) values ( 9, 9, 'Ukrainian department', 'UD');
 insert into department (id, faculty_id, name, short_name) values ( 10, 10, 'Medicine department', 'MD');
 
-insert into discipline values (1, 'English');
-insert into discipline values (2, 'History');
-insert into discipline values (3, 'Math');
-insert into discipline values (4, 'Culture');
-insert into discipline values (5, 'Dance');
-insert into discipline values (6, 'Biology');
-insert into discipline values (7, 'Programming');
-insert into discipline values (8, 'Fashion');
-insert into discipline values (9, 'Ukrainian');
-insert into discipline values (10, 'Medicine');
+insert into discipline (id, name) values (1, 'English');
+insert into discipline (id, name) values (2, 'History');
+insert into discipline (id, name) values (3, 'Math');
+insert into discipline (id, name) values (4, 'Culture');
+insert into discipline (id, name) values (5, 'Dance');
+insert into discipline (id, name) values (6, 'Biology');
+insert into discipline (id, name) values (7, 'Programming');
+insert into discipline (id, name) values (8, 'Fashion');
+insert into discipline (id, name) values (9, 'Ukrainian');
+insert into discipline (id, name) values (10, 'Medicine');
 
 insert into groups (id, department_id, name, course) values ( 1, 1, 'a', '1');
 insert into groups (id, department_id, name, course) values ( 2, 2, 'b', '2');
