@@ -17,17 +17,12 @@ public class Student {
     @Id
     private Long id;
 
+    private int group_id;
+
     @NotNull
     private String name;
 
     private String email;
 
     private String phone;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name="group_id", referencedColumnName="id")
-    })
-    private Group group;
-
 }

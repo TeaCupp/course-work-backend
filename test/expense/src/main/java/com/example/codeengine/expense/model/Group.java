@@ -24,4 +24,9 @@ public class Group {
 
     private int course;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="group_id", referencedColumnName="id")
+    })
+    private Student student;
 }
