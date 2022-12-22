@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +26,12 @@ public class Teacher {
     private String email;
 
     private String phone;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="teacher_id", referencedColumnName="id")
+    })
+    private Schedule schedule;
 
 }

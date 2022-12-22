@@ -18,6 +18,8 @@ public class Schedule {
     @Id
     private Long id;
 
+    private int teacher_id;
+
     @NotNull
     private String name;
 
@@ -25,12 +27,6 @@ public class Schedule {
 
     private String classroom;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name="teacher_id", referencedColumnName="id")
-    })
-    private Teacher teacher ;
 
 
 
