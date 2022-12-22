@@ -46,16 +46,16 @@ insert into expense values (default, 'New York Trip', '2019-06-16T17:00:00.00Z',
 insert into expense values (default, 'New York Trip', '2019-06-16T17:00:00.00Z', 'New York', 100.0, 11,1, 1);
 
 
-insert into faculty values (1, 'English faculty', 'EF');
-insert into faculty values (2, 'History faculty', 'HF');
-insert into faculty values (3, 'Math faculty', 'MF');
-insert into faculty values (4, 'Culture faculty', 'CF');
-insert into faculty values (5, 'Dance faculty', 'DF');
-insert into faculty values (6, 'Biology faculty', 'BF');
-insert into faculty values (7, 'Programming faculty', 'PF');
-insert into faculty values (8, 'Fashion faculty', 'FF');
-insert into faculty values (9, 'Ukrainian faculty', 'UF');
-insert into faculty values (10, 'Medicine faculty', 'MF');
+insert into faculty (id, name, short_name) values (1, 'English faculty', 'EF');
+insert into faculty (id, name, short_name) values (2, 'History faculty', 'HF');
+insert into faculty (id, name, short_name) values (3, 'Math faculty', 'MF');
+insert into faculty (id, name, short_name) values (4, 'Culture faculty', 'CF');
+insert into faculty (id, name, short_name) values (5, 'Dance faculty', 'DF');
+insert into faculty (id, name, short_name) values (6, 'Biology faculty', 'BF');
+insert into faculty (id, name, short_name) values (7, 'Programming faculty', 'PF');
+insert into faculty (id, name, short_name) values (8, 'Fashion faculty', 'FF');
+insert into faculty (id, name, short_name) values (9, 'Ukrainian faculty', 'UF');
+insert into faculty (id, name, short_name) values (10, 'Medicine faculty', 'MF');
 
 insert into department (id, faculty_id, name, short_name) values ( 1, 1, 'English department', 'ED');
 insert into department (id, faculty_id, name, short_name) values ( 2, 2, 'History department', 'HD');
