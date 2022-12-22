@@ -25,5 +25,10 @@ public class Department {
     private String short_name;
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="department_id", referencedColumnName="id")
+    })
+    private Group group;
 
 }

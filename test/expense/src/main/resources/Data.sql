@@ -79,16 +79,16 @@ insert into discipline values (8, 'Fashion');
 insert into discipline values (9, 'Ukrainian');
 insert into discipline values (10, 'Medicine');
 
-insert into groups values ( 1, 1, 'a', '1');
-insert into groups values ( 2, 2, 'b', '2');
-insert into groups values ( 3, 3, 'c', '3');
-insert into groups values ( 4, 4, 'd', '3');
-insert into groups values ( 5, 5, 'e', '2');
-insert into groups values ( 6, 6, 'f', '3');
-insert into groups values ( 7, 7, 'g', '1');
-insert into groups values ( 8, 8, 'h', '1');
-insert into groups values ( 9, 9, 'e', '3');
-insert into groups values ( 10, 10, 'g', '2');
+insert into groups (id, department_id, name, course) values ( 1, 1, 'a', '1');
+insert into groups (id, department_id, name, course) values ( 2, 2, 'b', '2');
+insert into groups (id, department_id, name, course) values ( 3, 3, 'c', '3');
+insert into groups (id, department_id, name, course) values ( 4, 4, 'd', '3');
+insert into groups (id, department_id, name, course) values ( 5, 5, 'e', '2');
+insert into groups (id, department_id, name, course) values ( 6, 6, 'f', '3');
+insert into groups (id, department_id, name, course) values ( 7, 7, 'g', '1');
+insert into groups (id, department_id, name, course) values ( 8, 8, 'h', '1');
+insert into groups (id, department_id, name, course) values ( 9, 9, 'e', '3');
+insert into groups (id, department_id, name, course) values ( 10, 10, 'g', '2');
 
 
 insert into teacher (id, name, surname, email, phone) values (1, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');

@@ -17,16 +17,11 @@ public class Group {
     @Id
     private Long id;
 
+    private int department_id;
 
     @NotNull
     private String name;
 
     private int course;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name="department_id", referencedColumnName="id")
-    })
-    private Department department;
 
 }
