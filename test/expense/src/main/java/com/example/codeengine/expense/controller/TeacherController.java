@@ -36,7 +36,7 @@ public class TeacherController {
     }
 
 
-    @PostMapping("/teacher")
+    @PostMapping("/teachers")
     ResponseEntity<Teacher> createTeacher(@Valid @RequestBody Teacher teacher) throws URISyntaxException {
         Teacher result = teacherRepository.save(teacher);
         return ResponseEntity.created(new URI("/api/student" + result.getId())).body(result);

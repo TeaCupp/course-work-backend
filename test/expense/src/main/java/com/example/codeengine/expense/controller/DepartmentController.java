@@ -21,9 +21,6 @@ public class DepartmentController {
         super();
         this.departmentRepository = departmentRepository;
     }
-    public DepartmentController() {
-        //you need a default contructor. As srequired by spring
-    }
 
     @GetMapping("/departments")
     Collection<Department> departments(){

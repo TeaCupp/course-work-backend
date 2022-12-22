@@ -39,7 +39,7 @@ public class FacultyController {
     }
 
 
-    @PostMapping("/faculty")
+    @PostMapping("/faculties")
     ResponseEntity<Faculty> createFaculty(@Valid @RequestBody Faculty faculty) throws URISyntaxException {
         Faculty result = facultyRepository.save(faculty);
         return ResponseEntity.created(new URI("/api/faculty" + result.getId())).body(result);

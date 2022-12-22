@@ -37,7 +37,7 @@ public class GroupController {
     }
 
 
-    @PostMapping("/group")
+    @PostMapping("/groups")
     ResponseEntity<Group> createGroup(@Valid @RequestBody Group group) throws URISyntaxException {
         Group result = groupRepository.save(group);
         return ResponseEntity.created(new URI("/api/group" + result.getId())).body(result);
