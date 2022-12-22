@@ -29,4 +29,11 @@ public class Group {
             @JoinColumn(name="group_id", referencedColumnName="id")
     })
     private Student student;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name="groups_id", referencedColumnName="id")
+    })
+    private Schedule schedule;
 }
