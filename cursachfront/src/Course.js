@@ -11,7 +11,7 @@ class Course extends Component {
     async componentDidMount() {
         const response = await fetch('/api/courses');
         const body = await response.json();
-        this.setState({Options: body, isLoading: false});
+        this.setState({Courses: body, isLoading: false});
     }
 
     render() {
@@ -37,4 +37,4 @@ class Course extends Component {
     }
 }
 
-export default Option;
+export default Course;
