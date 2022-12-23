@@ -24,6 +24,7 @@ public class Group {
 
     private int course_id;
 
+
     @NotNull
     private String name;
 

@@ -4,11 +4,10 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @AllArgsConstructor
@@ -24,4 +23,11 @@ public class Classroom {
         private Long id;
 
         private String name;
+
+        @ManyToOne
+        @OnDelete(action = OnDeleteAction.CASCADE)
+        @JoinColumns({
+                @JoinColumn(name="classroom_id", referencedColumnName="id")
+        })
+        private Schedule schedule;
 }

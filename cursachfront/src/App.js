@@ -12,6 +12,8 @@ import Schedules from "./Schedules";
 import Students from  "./Students";
 import Teachers from "./Teachers";
 
+import Classroom from "./Classroom";
+import Course from "./Course";
 
 
 
@@ -32,6 +34,9 @@ class App extends Component {
               <Route path="/schedules" exact={true} component={Schedules}/>
               <Route path="/students" exact={true} component={Students}/>
               <Route path="/teachers" exact={true} component={Teachers}/>
+
+            <Route path="/classrooms" exact={true} component={Classroom}/>
+            <Route path="/courses" exact={true} component={Course}/>
 
 
           </Switch>

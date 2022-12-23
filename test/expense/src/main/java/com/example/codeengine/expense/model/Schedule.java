@@ -27,15 +27,11 @@ public class Schedule {
 
     private int groups_id;
 
+    private int classroom_id;
+
     @NotNull
     private String name;
 
     private Instant time;
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumns({
-            @JoinColumn(name="classroom_id", referencedColumnName="id")
-    })
-    private Classroom classroom;
 }
