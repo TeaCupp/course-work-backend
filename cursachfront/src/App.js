@@ -7,9 +7,11 @@ import Expenses from "./Expenses";
 import Departments from "./Departments";
 import Disciplines from "./Disciplines";
 import Groups from "./Groups";
+import Faculties  from "./Faculties";
 import Schedules from "./Schedules";
 import Students from  "./Students";
 import Teachers from "./Teachers";
+
 
 
 
