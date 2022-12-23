@@ -1,5 +1,6 @@
 package com.example.codeengine.expense.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +25,6 @@ public class Group {
     @NotNull
     private String name;
 
-    @ManyToOne
-    private Course course;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumns({
@@ -41,4 +39,13 @@ public class Group {
             @JoinColumn(name="groups_id", referencedColumnName="id")
     })
     private Schedule schedule;
+
+
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumns({
+            @JoinColumn(name="course_id", referencedColumnName="id")
+    })
+    private Course course;
+
 }

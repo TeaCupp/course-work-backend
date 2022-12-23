@@ -1,9 +1,12 @@
 package com.example.codeengine.expense.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -30,7 +33,9 @@ public class Schedule {
     private Instant time;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumns({
+            @JoinColumn(name="classroom_id", referencedColumnName="id")
+    })
     private Classroom classroom;
-
-
 }

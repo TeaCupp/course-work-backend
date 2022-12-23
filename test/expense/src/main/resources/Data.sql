@@ -79,16 +79,23 @@ insert into discipline (id, name) values (8, 'Fashion');
 insert into discipline (id, name) values (9, 'Ukrainian');
 insert into discipline (id, name) values (10, 'Medicine');
 
-insert into groups (id, department_id, name, course) values ( 1, 1, 'a', '1');
-insert into groups (id, department_id, name, course) values ( 2, 2, 'b', '2');
-insert into groups (id, department_id, name, course) values ( 3, 3, 'c', '3');
-insert into groups (id, department_id, name, course) values ( 4, 4, 'd', '3');
-insert into groups (id, department_id, name, course) values ( 5, 5, 'e', '2');
-insert into groups (id, department_id, name, course) values ( 6, 6, 'f', '3');
-insert into groups (id, department_id, name, course) values ( 7, 7, 'g', '1');
-insert into groups (id, department_id, name, course) values ( 8, 8, 'h', '1');
-insert into groups (id, department_id, name, course) values ( 9, 9, 'e', '3');
-insert into groups (id, department_id, name, course) values ( 10, 10, 'g', '2');
+
+insert into course (id, course_id) values (1, 1);
+insert into course (id, course_id) values (2, 2);
+insert into course (id, course_id) values (3, 3);
+insert into course (id, course_id) values (4, 4);
+
+
+insert into groups (id, department_id, name, course_id) values ( 1, 1, 'a', 1);
+insert into groups (id, department_id, name, course_id) values ( 2, 2, 'b', 2);
+insert into groups (id, department_id, name, course_id) values ( 3, 3, 'c', 3);
+insert into groups (id, department_id, name, course_id) values ( 4, 4, 'd', 3);
+insert into groups (id, department_id, name, course_id) values ( 5, 5, 'e', 2);
+insert into groups (id, department_id, name, course_id) values ( 6, 6, 'f', 3);
+insert into groups (id, department_id, name, course_id) values ( 7, 7, 'g', 1);
+insert into groups (id, department_id, name, course_id) values ( 8, 8, 'h', 1);
+insert into groups (id, department_id, name, course_id) values ( 9, 9, 'e', 3);
+insert into groups (id, department_id, name, course_id) values ( 10, 10, 'g', 2);
 
 
 insert into teacher (id, name, surname, email, phone) values (1, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
@@ -102,16 +109,25 @@ insert into teacher (id, name, surname, email, phone) values (8, 'Anastasia', 'P
 insert into teacher (id, name, surname, email, phone) values (9, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
 insert into teacher (id, name, surname, email, phone) values (10, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
 
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (1, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 12);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (2, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 11);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (3, 'University', 3, 3, 3, '2019-06-16T17:00:00.00Z', 10);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (4, 'University', 4, 4, 4, '2019-06-16T17:00:00.00Z', 9);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (5, 'University', 5, 5, 5, '2019-06-16T17:00:00.00Z', 8);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (6, 'University', 6, 6, 6, '2019-06-16T17:00:00.00Z', 7);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (7, 'University', 7, 7, 7, '2019-06-16T17:00:00.00Z', 2);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (8, 'University', 8, 8, 8, '2019-06-16T17:00:00.00Z', 4);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (9, 'University', 9, 9, 9, '2019-06-16T17:00:00.00Z', 8);
-insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom) values (10, 'University', 10, 10, 10, '2019-06-16T17:00:00.00Z', 2);
+
+insert into classroom (id, classroom_id) values (1, 1);
+insert into classroom (id, classroom_id) values (2, 1);
+insert into classroom (id, classroom_id) values (3, 1);
+insert into classroom (id, classroom_id) values (4, 1);
+insert into classroom (id, classroom_id) values (5, 1);
+insert into classroom (id, classroom_id) values (6, 1);
+insert into classroom (id, classroom_id) values (7, 1);
+
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (1, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (2, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (3, 'University', 3, 3, 3, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (4, 'University', 4, 4, 4, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (5, 'University', 5, 5, 5, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (6, 'University', 6, 6, 6, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (7, 'University', 7, 7, 7, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (8, 'University', 8, 8, 8, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (9, 'University', 9, 9, 9, '2019-06-16T17:00:00.00Z', 1);
+insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (10, 'University', 10, 10, 10, '2019-06-16T17:00:00.00Z', 1);
 
 insert into student (id, group_id, name, email, phone) values (1, 1, 'Olena', 'Olena@gmail', '+380685463728');
 insert into student (id, group_id, name, email, phone) values (2, 2, 'Olena', 'Olena@gmail', '+380685463728');

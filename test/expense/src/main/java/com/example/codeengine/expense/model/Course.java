@@ -21,6 +21,5 @@ public class Course {
     @GeneratedValue
     private Long id;
 
-    @NotNull
-    private String name;
+    private int course_id;
 }
