@@ -24,7 +24,8 @@ public class Group {
     @NotNull
     private String name;
 
-    private int course;
+    @ManyToOne
+    private Course course;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
