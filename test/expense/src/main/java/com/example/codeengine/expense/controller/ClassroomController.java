@@ -4,6 +4,7 @@ package com.example.codeengine.expense.controller;
 import com.example.codeengine.expense.model.Category;
 import com.example.codeengine.expense.model.Classroom;
 import com.example.codeengine.expense.repository.CategoryRepository;
+import com.example.codeengine.expense.repository.ClassroomRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,42 +21,42 @@ public class ClassroomController {
 
     private ClassroomRepository classroomRepository;
 
-    public CategoryController(CategoryRepository categoryRepository) {
+    public ClassroomController(ClassroomRepository classroomRepository) {
         super();
-        this.categoryRepository = categoryRepository;
+        this.classroomRepository = classroomRepository;
     }
 
-    @GetMapping("/categories")
-    Collection<Category> categories(){
-        return categoryRepository.findAll();
+    @GetMapping("/classrooms")
+    Collection<Classroom> classrooms(){
+        return classroomRepository.findAll();
     }
 
-    @GetMapping("category/{id}")
-    ResponseEntity<?> getCategory(@PathVariable Long id){
-        Optional<Category> category = categoryRepository.findById(id);
-        return category.map(response -> ResponseEntity.ok().body(response))
+    @GetMapping("classroom/{id}")
+    ResponseEntity<?> getClassroom(@PathVariable Long id){
+        Optional<Classroom> classroom = classroomRepository.findById(id);
+        return classroom.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
 
     }
 
 
-    @PostMapping("/category")
-    ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) throws URISyntaxException {
-        Category result = categoryRepository.save(category);
-        return ResponseEntity.created(new URI("/api/category" + result.getId())).body(result);
+    @PostMapping("classroom")
+    ResponseEntity<Classroom> createClassroom(@Valid @RequestBody Classroom classroom) throws URISyntaxException {
+        Classroom result = classroomRepository.save(classroom);
+        return ResponseEntity.created(new URI("/api/classroom" + result.getId())).body(result);
     }
 
 
-    @PutMapping("/category/{id}")
-    ResponseEntity<Category> updateCategory(@Valid @RequestBody Category category){
-        Category result = categoryRepository.save(category);
+    @PutMapping("/classroom/{id}")
+    ResponseEntity<Classroom> updateClassroom(@Valid @RequestBody Classroom classroom){
+        Classroom result = classroomRepository.save(classroom);
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/category/{id}")
-    ResponseEntity<?> deleteCategory(@PathVariable Long id){
-        categoryRepository.deleteById(id);
+    @DeleteMapping("/classroom/{id}")
+    ResponseEntity<?> deleteClassroom(@PathVariable Long id){
+        classroomRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
