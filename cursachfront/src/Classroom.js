@@ -1,21 +1,18 @@
-import React, {Component, Fragment} from "react";
-
+import React, {Component} from 'react';
+import AppNav from "./AppNav";
 
 
 class Classroom extends Component {
     state = {
-        isLoading : true,
+        isLoading :true,
         Classrooms : []
     }
 
-
-    async componentDidMount(){
-        const response=await fetch('/api/classrooms')
+    async componentDidMount() {
+        const response = await fetch('/api/classrooms');
         const body = await response.json();
-        this.setState({Classrooms :body , isLoading: false});
+        this.setState({Classrooms: body, isLoading: false});
     }
-
-
 
     render() {
         const {Classrooms, isLoading} = this.state;
@@ -23,16 +20,18 @@ class Classroom extends Component {
             return(<div>Loading...</div>);
 
 
-
-        return (
+        return(
             <div>
-                <h2>Classrooms</h2>
+                <AppNav/>
+                <h2>Classroom</h2>
                 {
-                    Classrooms.map( (classroom) =>
-                        <option value={classroom.id} key={classroom.id}>
+                    Classrooms.map( classroom =>
+                        <div id={classroom.id}>
                             {classroom.name}
-                        </option>)
+                        </div>
+                    )
                 }
+
             </div>
         );
     }
