@@ -4,6 +4,14 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom" ;
 import Home from "./Home";
 import Expenses from "./Expenses";
 
+import Departments from "./Departments";
+import Disciplines from "./Disciplines";
+import Groups from "./Groups";
+import Schedules from "./Schedules";
+import Students from  "./Students";
+import Teachers from "./Teachers";
+
+
 
 class App extends Component {
   state = {}
