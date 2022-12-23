@@ -29,7 +29,8 @@ public class Schedule {
 
     private Instant time;
 
-    private String classroom;
+    @ManyToOne
+    private Classroom classroom;
 
 
 }
