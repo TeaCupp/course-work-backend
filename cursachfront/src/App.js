@@ -24,6 +24,16 @@ class App extends Component {
             <Route path="/" exact={true} component={Home}/>
             <Route path="/categories" exact={true} component={Category}/>
             <Route path="/expenses" exact={true} component={Expenses}/>
+
+              <Route path="/departments" exact={true} component={Departments}/>
+              <Route path="/disciplines" exact={true} component={Disciplines}/>
+              <Route path="/groups" exact={true} component={Groups}/>
+              <Route path="/faculties" exact={true} component={Faculties}/>
+              <Route path="/schedules" exact={true} component={Schedules}/>
+              <Route path="/students" exact={true} component={Students}/>
+              <Route path="/teachers" exact={true} component={Teachers}/>
+
+
           </Switch>
         </Router>
     );
