@@ -110,13 +110,13 @@ insert into teacher (id, name, surname, email, phone) values (9, 'Anastasia', 'P
 insert into teacher (id, name, surname, email, phone) values (10, 'Anastasia', 'Petrivna', 'AnastasiaPetrivna@gmail.com', '+380685463728');
 
 
-insert into classroom (id, classroom_id) values (1, 1);
-insert into classroom (id, classroom_id) values (2, 1);
-insert into classroom (id, classroom_id) values (3, 1);
-insert into classroom (id, classroom_id) values (4, 1);
-insert into classroom (id, classroom_id) values (5, 1);
-insert into classroom (id, classroom_id) values (6, 1);
-insert into classroom (id, classroom_id) values (7, 1);
+insert into classroom (id, name) values (1, 'A');
+insert into classroom (id, name) values (2, 'B');
+insert into classroom (id, name) values (3, 'C');
+insert into classroom (id, name) values (4, 'D');
+insert into classroom (id, name) values (5, 'E');
+insert into classroom (id, name) values (6, 'F');
+insert into classroom (id, name) values (7, 'G');
 
 insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (1, 'University', 1, 1, 1, '2019-06-16T17:00:00.00Z', 1);
 insert into schedule (id, name, teacher_id, discipline_id, groups_id, time, classroom_id) values (2, 'University', 2, 2, 2, '2019-06-16T17:00:00.00Z', 1);

@@ -23,5 +23,5 @@ public class Classroom {
         @GeneratedValue
         private Long id;
 
-        private int classroom_id;
+        private String name;
 }
