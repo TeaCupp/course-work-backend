@@ -41,7 +41,7 @@ public class ClassroomController {
     }
 
 
-    @PostMapping("classroom")
+    @PostMapping("classrooms")
     ResponseEntity<Classroom> createClassroom(@Valid @RequestBody Classroom classroom) throws URISyntaxException {
         Classroom result = classroomRepository.save(classroom);
         return ResponseEntity.created(new URI("/api/classroom" + result.getId())).body(result);
