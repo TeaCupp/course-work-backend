@@ -38,7 +38,7 @@ public class DisciplinesController {
     }
 
 
-    @PostMapping("/disciplines")
+    @PostMapping("/discipline")
     ResponseEntity<Discipline> createDiscipline(@Valid @RequestBody Discipline discipline) throws URISyntaxException {
         Discipline result = disciplineRepository.save(discipline);
         return ResponseEntity.created(new URI("/api/discipline" + result.getId())).body(result);

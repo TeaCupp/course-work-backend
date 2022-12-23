@@ -37,7 +37,7 @@ public class DepartmentController {
     }
 
 
-    @PostMapping("/departments")
+    @PostMapping("/department")
     ResponseEntity<Department> createDepartment(@Valid @RequestBody Department department) throws URISyntaxException {
         Department result = departmentRepository.save(department);
         return ResponseEntity.created(new URI("/api/department" + result.getId())).body(result);

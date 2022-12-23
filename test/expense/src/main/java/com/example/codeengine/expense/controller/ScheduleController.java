@@ -37,7 +37,7 @@ public class ScheduleController {
     }
 
 
-    @PostMapping("/schedules")
+    @PostMapping("/schedule")
     ResponseEntity<Schedule> createSchedule(@Valid @RequestBody Schedule schedule) throws URISyntaxException {
         Schedule result = scheduleRepository.save(schedule);
         return ResponseEntity.created(new URI("/api/schedule" + result.getId())).body(result);
