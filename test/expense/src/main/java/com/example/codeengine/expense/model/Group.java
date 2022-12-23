@@ -22,6 +22,8 @@ public class Group {
 
     private int department_id;
 
+    private int course_id;
+
     @NotNull
     private String name;
 
@@ -39,13 +41,5 @@ public class Group {
             @JoinColumn(name="groups_id", referencedColumnName="id")
     })
     private Schedule schedule;
-
-
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumns({
-            @JoinColumn(name="course_id", referencedColumnName="id")
-    })
-    private Course course;
 
 }
