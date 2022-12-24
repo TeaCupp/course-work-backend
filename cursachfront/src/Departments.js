@@ -96,15 +96,15 @@ export default class Departments extends Component {
 
     async remove(id) {
         console.log(id);
-        await fetch(`/api/expenses/${id}`, {
+        await fetch(`/api/departments/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then(() => {
-            let updatedExpenses = [...this.state.Expenses].filter(i => i.id !== id);
-            this.setState({Expenses: updatedExpenses});
+            let updatedDepartments = [...this.state.Departments].filter(i => i.id !== id);
+            this.setState({Departments: updatedDepartments});
         });
     }
 
