@@ -14,25 +14,18 @@ import EditableRow from "./DepartmentComponents/EditableRow";
 
 
 
-export default class Expenses extends Component {
+export default class Departments extends Component {
 
     emptyItem = {
-        description: '',
-        expensedate: new Date(),
-        startdate: null,
-        enddate: null,
-        location: '',
-        option: {id: 1, name: 'Purchase'},
-        category: {id: 1, name: 'Travel'},
-        expenses: 124,
-        sum: 0
+        name: '',
+        short_name: ''
     }
 
-    handleEdit = (event, expense) => {
+    handleEdit = (event, department) => {
         event.preventDefault();
         this.setState(state => ({
                 ...state,
-                editExpenseId: expense.id
+                editDepartmentId: department.id
             }
         ));
     }
