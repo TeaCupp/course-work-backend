@@ -170,19 +170,16 @@ export default class Departments extends Component {
                         </thead>
                         <tbody>
 
-                        {this.state.FilteredExpenses.map((expense, k) => (
+                        {this.state.Departments.map((department, k) => (
                             <Fragment key={k}>
                                 {
-                                    this.state.editExpenseId === expense.id ? (
+                                    this.state.editDepartmentId === department.id ? (
                                         <EditableRow handleSubmit={this.handleSubmit}
-                                                     optionList1={optionList1}
-                                                     optionList2={optionList2}
+
                                                      cancelEdit={this.cancelEdit}
-                                                     expense={expense}
-                                                     categories={this.state.Categories}
-                                                     options={this.state.Options}/>
+                                                     department={department}/>
                                     ) : (
-                                        <ReadOnlyRow expense={expense} handleSubmit={this.handleEdit}
+                                        <ReadOnlyRow expense={department} handleSubmit={this.handleEdit}
                                                      remove={this.remove}/>
                                     )
                                 }
