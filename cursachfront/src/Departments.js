@@ -33,7 +33,7 @@ export default class Departments extends Component {
     cancelEdit = () => {
         this.setState(state => ({
             ...state,
-            editExpenseId: null
+            editDepartmentId: null
         }));
     }
 
