@@ -50,25 +50,8 @@ const EditableRow = ({
     }
 
 
-    const handleCategoryChange = (event) => {
-        const target = event.target;
-        const value = parseInt(target.value, 10);
-        let item = editFormData;
-        const category = categories.find(category => category.id === value);
-        item['category'] = {id: value, name: category.name};
-        setEditFormData(item);
-        console.log(editFormData);
-    }
 
-    const handleOptionChange = (event) => {
-        const target = event.target;
-        const value = parseInt(target.value, 10);
-        let item = editFormData;
-        const option = options.find(option => option.id === value);
-        item['option'] = {id: value, name: option.name};
-        setEditFormData(item);
-        console.log(editFormData);
-    }
+
 
     const handleDateChange= (date) => {
         let item = {...editFormData};
