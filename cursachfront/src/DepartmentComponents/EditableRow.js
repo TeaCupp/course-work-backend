@@ -23,7 +23,7 @@ const EditableRow = ({
         console.log(item);
     };
 
-    const handleExpenseFormChange = (event) => {
+    const handleDepartmentFormChange = (event) => {
         const target = event.target;
         const value = target.value;
         let item = {...editFormData};
@@ -53,7 +53,7 @@ const EditableRow = ({
     const [editFormData, setEditFormData] = useState({
         id: department.id,
         name: department.name,
-        shortName: department.shortName,
+        short_name: department.short_name,
     });
 
 
@@ -74,19 +74,19 @@ const EditableRow = ({
                 />
             </td>
             <td className="tdDepartment">
-                <Label for="shortName">ShortName</Label>
-                <Input value={editFormData.shortName}
+                <Label for="short_name">ShortName</Label>
+                <Input value={editFormData.short_name}
                        style={{width: 100}}
                        type="text"
-                       name="shortName"
+                       name="short_name"
                        required="required"
-                       placeholder="Enter shortName...."
-                       id="shortName"
+                       placeholder="Enter short_name...."
+                       id="short_name"
                        onChange={handleEditFormChange}
                 />
             </td>
 
-            <td className="tdExpense">
+            <td className="tdDepartment">
                 <Button color="primary" onClick={handleEditSubmit}>Save</Button>{' '}
                 <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
             </td>
