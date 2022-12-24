@@ -159,39 +159,13 @@ export default class Departments extends Component {
                     </Form>
                 </Container>
 
-                <Container>
-                    <h3>Filters</h3>
-                    <select onChange={this.filterCategoryChange}>
-                        <option value="All" key={-1}>
-                            All expenses
-                        </option>
-                        {optionsFilter}
-                    </select>
 
-                    <FormGroup>
-                        <Label for="city">Date Start</Label>
-                        <DatePicker selected={this.state?.startdate} onChange={this.handleStartDateChange}/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="city">Date End</Label>
-                        <DatePicker selected={this.state?.enddate} onChange={this.handleEndDateChange}/>
-                    </FormGroup>
-                </Container>
-
-
-
-                {''}
                 <Container>
                     <Table className="app-container">
                         <thead>
                         <tr className="trHead">
-                            <th className="thHead">Description</th>
-                            <th className="thHead">Location</th>
-                            <th className="thHead"> Date</th>
-                            <th className="thHead"> Option</th>
-                            <th className="thHead"> Category</th>
-                            <th className="thHead"> Expenses</th>
-                            <th className="thHead"> Actions</th>
+                            <th className="thHead">Name</th>
+                            <th className="thHead">ShortName</th>
                         </tr>
                         </thead>
                         <tbody>
