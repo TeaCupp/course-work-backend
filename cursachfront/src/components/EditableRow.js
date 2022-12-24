@@ -32,7 +32,7 @@ const EditableRow = ({
 
 
 
-    
+    /*handle Form Change */
     const handleExpenseFormChange = (event) => {
         const target = event.target;
         const value = target.value;

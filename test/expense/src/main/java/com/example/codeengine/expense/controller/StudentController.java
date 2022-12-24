@@ -36,10 +36,10 @@ public class StudentController {
     }
 
 
-    @PostMapping("/student")
+    @PostMapping("/students")
     ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) throws URISyntaxException {
         Student result = studentRepository.save(student);
-        return ResponseEntity.created(new URI("/api/student" + result.getId())).body(result);
+        return ResponseEntity.created(new URI("/api/students" + result.getId())).body(result);
     }
 
 
