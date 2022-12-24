@@ -7,12 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const EditableRow = ({
-                         optionList1,
-                         optionList2,
                          cancelEdit,
-                         expense,
-                         categories,
-                         options
+                         department
                      }) => {
 
     const handleEditFormChange = (event) => {
