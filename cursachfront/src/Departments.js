@@ -50,11 +50,6 @@ export default class Departments extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleStartDateChange = this.handleStartDateChange.bind(this);
-        this.handleEndDateChange = this.handleEndDateChange.bind(this);
-        this.handleCategoryChange = this.handleCategoryChange.bind(this);
-        this.handleOptionChange = this.handleOptionChange.bind(this);
         this.remove = this.remove.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
 
