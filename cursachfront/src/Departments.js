@@ -84,22 +84,14 @@ export default class Departments extends Component {
         console.log(item);
     }
 
-    
+
 
 
     async componentDidMount() {
-        const response = await fetch('/api/categories');
-        const body = await response.json();
-        this.setState({Categories: body, isLoading: false});
-
-        const responseExp = await fetch('/api/expenses');
+        const responseExp = await fetch('/api/departments');
         const bodyExp = await responseExp.json();
         this.setState({Expenses: bodyExp, isLoading: false});
-        const responseOpt = await fetch('/api/options');
-        const bodyOpt = await responseOpt.json();
-        this.setState({Options: bodyOpt, isLoading: false});
-        this.setState({FilteredExpenses:bodyExp});
-        this.setState({FilteredData:bodyExp});
+
     }
 
     async remove(id) {
