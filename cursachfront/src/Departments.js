@@ -107,39 +107,19 @@ export default class Departments extends Component {
             this.setState({Departments: updatedDepartments});
         });
     }
-    
+
 
 
     render() {
-        const title = <h3>Add Expense</h3>;
-        const {Categories} = this.state;
+        const title = <h3>Add Department</h3>;
         const {isLoading} = this.state;
-        const {Options} = this.state;
 
         if (isLoading)
             return (<div>Loading....</div>)
 
-        let optionList1 =
-            Categories.map((category) =>
-                <option value={category.id} key={category.id}>
-                    {category.name}
-                </option>
-            );
 
-        let optionList2 =
-            Options.map((option) =>
-                <option value={option.id} key={option.id}>
-                    {option.name}
-                </option>
-            );
 
-        let optionsFilter =
-            Categories.map((category) =>
-                <option value={category.id} key={category.id}>
-                    {category.name}
-                </option>
-            );
-
+        
         return (
 
 
