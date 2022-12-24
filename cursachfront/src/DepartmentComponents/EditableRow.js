@@ -52,23 +52,10 @@ const EditableRow = ({
 
 
 
-
-    const handleDateChange= (date) => {
-        let item = {...editFormData};
-        item.expensedate = date;
-        setEditFormData(item);
-        console.log(editFormData);
-    }
-
-
     const [editFormData, setEditFormData] = useState({
-        id: expense.id,
-        description: expense.description,
-        expensedate: new Date(expense.expensedate),
-        location: expense.location,
-        option: expense.option,
-        category: expense.category,
-        expenses: expense.sum,
+        id: department.id,
+        description: department.description,
+        location: department.location,
     });
 
     return (
