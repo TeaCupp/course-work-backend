@@ -85,35 +85,7 @@ const EditableRow = ({
                        onChange={handleEditFormChange}
                 />
             </td>
-            <td className="tdExpense">
-                <Label for="city">Date</Label>
-                <DatePicker selected={editFormData.expensedate}
-                            onChange={handleDateChange}/>
-            </td>
-            <td className="tdExpense">
-                <Label for="option">Purchase or receipt</Label>
-                <select onChange={handleOptionChange}>
-                    {optionList2}
-                </select>
-            </td>
-            <td className="tdExpense">
-                <Label for="category">Category</Label>
-                <select onChange={handleCategoryChange}>
-                    {optionList1}
-                </select>
-            </td>
-            <td className="tdExpense">
-                <Label for="expenses">Expense</Label>
-                <Input style={{width: 80}}
-                       value={editFormData.expenses}
-                       type="number"
-                       name="sum"
-                       required="required"
-                       placeholder="Enter expense sum...."
-                       id="expenses"
-                       onChange={handleExpenseFormChange}
-                />
-            </td>
+            
             <td className="tdExpense">
                 <Button color="primary" onClick={handleEditSubmit}>Save</Button>{' '}
                 <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
