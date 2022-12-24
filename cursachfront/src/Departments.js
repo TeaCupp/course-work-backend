@@ -18,7 +18,7 @@ export default class Departments extends Component {
 
     emptyItem = {
         name: '',
-        short_name: ''
+        shortName: ''
     }
 
     handleEdit = (event, department) => {
@@ -90,7 +90,7 @@ export default class Departments extends Component {
     async componentDidMount() {
         const responseExp = await fetch('/api/departments');
         const bodyExp = await responseExp.json();
-        this.setState({Expenses: bodyExp, isLoading: false});
+        this.setState({Departments: bodyExp, isLoading: false});
 
     }
 
@@ -179,7 +179,7 @@ export default class Departments extends Component {
                                                      cancelEdit={this.cancelEdit}
                                                      department={department}/>
                                     ) : (
-                                        <ReadOnlyRow expense={department} handleSubmit={this.handleEdit}
+                                        <ReadOnlyRow department={department} handleSubmit={this.handleEdit}
                                                      remove={this.remove}/>
                                     )
                                 }
