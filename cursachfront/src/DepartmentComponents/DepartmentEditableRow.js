@@ -6,12 +6,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
-const EditableRow = ({
-                         cancelEdit,
-                         department
+const DepartmentEditableRow = ({
+                         department, cancelEditDepartment
                      }) => {
 
-    const handleEditFormChange = (event) => {
+    const handleEditFormDepartmentChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -33,7 +32,7 @@ const EditableRow = ({
         console.log(item);
     };
 
-    const handleEditSubmit = async () => {
+    const handleEditSubmitDepartment = async () => {
 
         await fetch(`/api/departments/${editFormData.id}`, {
             method: 'PUT',
@@ -46,7 +45,7 @@ const EditableRow = ({
 
         console.log("Edit request is sent!!!");
         window.location.reload();
-        cancelEdit();
+        cancelEditDepartment();
     }
 
 
@@ -69,7 +68,7 @@ const EditableRow = ({
                        required="required"
                        placeholder="Enter name...."
                        id="name"
-                       onChange={handleEditFormChange}
+                       onChange={handleEditFormDepartmentChange}
                        autoComplete="name"
                 />
             </td>
@@ -82,16 +81,16 @@ const EditableRow = ({
                        required="required"
                        placeholder="Enter short_name...."
                        id="short_name"
-                       onChange={handleEditFormChange}
+                       onChange={handleDepartmentFormChange}
                 />
             </td>
 
             <td className="tdDepartment">
-                <Button color="primary" onClick={handleEditSubmit}>Save</Button>{' '}
-                <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
+                <Button color="primary" onClick={handleEditSubmitDepartment}>Save</Button>{' '}
+                <Button onClick={cancelEditDepartment} color="secondary">Cancel</Button>{' '}
             </td>
         </tr>
     );
 };
 
-export default EditableRow;
+export default DepartmentEditableRow;

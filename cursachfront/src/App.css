@@ -71,6 +71,15 @@ td {
   flex: 1;
 }
 
+.trDepartment {
+  display: flex;
+}
+
+.tdDepartment {
+  flex: 1;
+}
+
+
 th {
   background-color: rgb(117, 201, 250);
 }

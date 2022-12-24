@@ -5,8 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
-import ReadOnlyRow from "./DepartmentComponents/ReadOnlyRow";
-import EditableRow from "./DepartmentComponents/EditableRow";
+import DepartmentReadOnlyRow from "./DepartmentComponents/DepartmentReadOnlyRow";
+import DepartmentEditableRow from "./DepartmentComponents/DepartmentEditableRow";
 import Category from "./Category";
 
 
@@ -21,7 +21,7 @@ export default class Departments extends Component {
         short_name: ''
     }
 
-    handleEdit = (event, department) => {
+    handleEditDepartment = (event, department) => {
         event.preventDefault();
         this.setState(state => ({
                 ...state,
@@ -30,7 +30,7 @@ export default class Departments extends Component {
         ));
     }
 
-    cancelEdit = () => {
+    cancelEditDepartment = () => {
         this.setState(state => ({
             ...state,
             editDepartmentId: null
@@ -48,14 +48,14 @@ export default class Departments extends Component {
             editDepartmentsId: null
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.remove = this.remove.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
+        this.handleSubmitDepartment = this.handleSubmitDepartment.bind(this);
+        this.handleChangeDepartment = this.handleChangeDepartment.bind(this);
+        this.removeDepartment = this.removeDepartment.bind(this);
+        this.handleEditDepartment = this.handleEditDepartment.bind(this);
 
     }
 
-    async handleSubmit(event) {
+    async handleSubmitDepartment(event) {
 
         const item = this.state.item;
 
@@ -74,7 +74,7 @@ export default class Departments extends Component {
         this.props.history.push("/departments");
     }
 
-    handleChange(event) {
+    handleChangeDepartment(event) {
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -94,7 +94,7 @@ export default class Departments extends Component {
 
     }
 
-    async remove(id) {
+    async removeDepartment(id) {
         console.log(id);
         await fetch(`/api/departments/${id}`, {
             method: 'DELETE',
@@ -130,12 +130,12 @@ export default class Departments extends Component {
                 <AppNav/>
                 <Container>
                     {title}
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={this.handleSubmitDepartment}>
                         <FormGroup>
                             <Label for="name">Name</Label>
                             <Input type="name " name="name" required="required"
                                    placeholder="Enter name...." id="name"
-                                   onChange={this.handleChange} autoComplete="name"/>
+                                   onChange={this.handleChangeDepartment} autoComplete="name"/>
                         </FormGroup>
 
 
@@ -145,7 +145,7 @@ export default class Departments extends Component {
                             <FormGroup className={"col-md-4 mb-3"}>
                                 <Label for="short_name">ShortName</Label>
                                 <Input type="text" name="short_name" required="required"
-                                       placeholder="Enter ShortName...." id="short_name" onChange={this.handleChange}/>
+                                       placeholder="Enter ShortName...." id="short_name" onChange={this.handleChangeDepartment}/>
                             </FormGroup>
                         </div>
 
@@ -175,13 +175,13 @@ export default class Departments extends Component {
                             <Fragment key={k}>
                                 {
                                     this.state.editDepartmentId === department.id ? (
-                                        <EditableRow handleSubmit={this.handleSubmit}
+                                        <DepartmentEditableRow handleSubmitDepartment={this.handleSubmitDepartment}
 
-                                                     cancelEdit={this.cancelEdit}
-                                                     department={department}/>
+                                                               cancelEditDepartment={this.cancelEditDepartment}
+                                                               department={department}/>
                                     ) : (
-                                        <ReadOnlyRow department={department} handleSubmit={this.handleEdit}
-                                                     remove={this.remove}/>
+                                        <DepartmentReadOnlyRow department={department} handleSubmitDepartment={this.handleEditDepartment}
+                                                               removeDepartment={this.removeDepartment}/>
                                     )
                                 }
                             </Fragment>
