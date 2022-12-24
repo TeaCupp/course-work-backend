@@ -61,7 +61,7 @@ export default class Departments extends Component {
 
         console.log('POST');
         console.log(item);
-        await fetch('/api/expenses', {
+        await fetch('/api/departments', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -71,7 +71,7 @@ export default class Departments extends Component {
         });
 
         event.preventDefault();
-        this.props.history.push("/expenses");
+        this.props.history.push("/departments");
     }
 
     handleChange(event) {
