@@ -50,24 +50,25 @@ const EditableRow = ({
     }
 
 
-
-
     const [editFormData, setEditFormData] = useState({
         id: department.id,
-        description: department.description,
-        location: department.location,
+        name: department.name,
+        shortName: department.shortName,
     });
 
+
+
+
     return (
-        <tr className="trExpense">
-            <td className="tdExpense">
-                <Label for="description">Description</Label>
-                <Input value={editFormData.description}
-                       type="description"
-                       name="description"
+        <tr className="trDepartment">
+            <td className="tdDepartment">
+                <Label for="name">Name</Label>
+                <Input value={editFormData.name}
+                       type="name"
+                       name="name"
                        required="required"
-                       placeholder="Enter description...."
-                       id="description"
+                       placeholder="Enter name...."
+                       id="name"
                        onChange={handleEditFormChange}
                        autoComplete="name"
                 />
