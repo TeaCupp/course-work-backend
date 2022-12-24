@@ -119,7 +119,9 @@ export default class Departments extends Component {
 
 
 
-        
+
+
+
         return (
 
 
@@ -130,9 +132,9 @@ export default class Departments extends Component {
                     {title}
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
-                            <Label for="description">Title</Label>
-                            <Input type="description" name="description" required="required"
-                                   placeholder="Enter title...." id="description"
+                            <Label for="name">Name</Label>
+                            <Input type="name" name="name" required="required"
+                                   placeholder="Enter name...." id="name"
                                    onChange={this.handleChange} autoComplete="name"/>
                         </FormGroup>
 
