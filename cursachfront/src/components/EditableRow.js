@@ -27,6 +27,12 @@ const EditableRow = ({
         console.log(item);
     };
 
+
+
+
+
+
+    
     const handleExpenseFormChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -36,6 +42,11 @@ const EditableRow = ({
         console.log(value);
         console.log(item);
     };
+
+
+
+
+
 
     const handleEditSubmit = async () => {
 
