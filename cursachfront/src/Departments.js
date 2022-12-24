@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import ReadOnlyRow from "./DepartmentComponents/ReadOnlyRow";
 import EditableRow from "./DepartmentComponents/EditableRow";
+import Category from "./Category";
 
 
 
@@ -87,9 +88,9 @@ export default class Departments extends Component {
 
 
     async componentDidMount() {
-        const responseExp = await fetch('/api/departments');
-        const bodyExp = await responseExp.json();
-        this.setState({Departments: bodyExp, isLoading: false});
+        const response = await fetch('/api/departments');
+        const body = await response.json();
+        this.setState({Departments: body, isLoading: false});
 
     }
 
@@ -132,7 +133,7 @@ export default class Departments extends Component {
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label for="name">Name</Label>
-                            <Input type="name" name="name" required="required"
+                            <Input type="name " name="name" required="required"
                                    placeholder="Enter name...." id="name"
                                    onChange={this.handleChange} autoComplete="name"/>
                         </FormGroup>
@@ -196,3 +197,4 @@ export default class Departments extends Component {
         )
     }
 }
+
