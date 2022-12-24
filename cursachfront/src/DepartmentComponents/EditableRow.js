@@ -41,7 +41,7 @@ const EditableRow = ({
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({...editFormData,sum: editFormData.expenses}),
+            body: JSON.stringify({...editFormData,sum: editFormData.departments}),
         });
 
         console.log("Edit request is sent!!!");
@@ -85,7 +85,7 @@ const EditableRow = ({
                        onChange={handleEditFormChange}
                 />
             </td>
-            
+
             <td className="tdExpense">
                 <Button color="primary" onClick={handleEditSubmit}>Save</Button>{' '}
                 <Button onClick={cancelEdit} color="secondary">Cancel</Button>{' '}
