@@ -143,9 +143,9 @@ export default class Departments extends Component {
 
                         <div className="row">
                             <FormGroup className={"col-md-4 mb-3"}>
-                                <Label for="location">Location</Label>
-                                <Input type="text" name="location" required="required"
-                                       placeholder="Enter location...." id="location" onChange={this.handleChange}/>
+                                <Label for="ShortName">ShortName</Label>
+                                <Input type="text" name="ShortName" required="required"
+                                       placeholder="Enter ShortName...." id="ShortName" onChange={this.handleChange}/>
                             </FormGroup>
                         </div>
 
