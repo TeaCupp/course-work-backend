@@ -35,7 +35,7 @@ const EditableRow = ({
 
     const handleEditSubmit = async () => {
 
-        await fetch(`/api/expenses/${editFormData.id}`, {
+        await fetch(`/api/departments/${editFormData.id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
