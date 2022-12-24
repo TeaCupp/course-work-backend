@@ -27,7 +27,7 @@ const EditableRow = ({
         const target = event.target;
         const value = target.value;
         let item = {...editFormData};
-        item['expenses'] = value;
+        item['departments'] = value;
         setEditFormData(item);
         console.log(value);
         console.log(item);
