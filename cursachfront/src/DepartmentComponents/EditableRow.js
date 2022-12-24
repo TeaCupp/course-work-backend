@@ -73,15 +73,15 @@ const EditableRow = ({
                        autoComplete="name"
                 />
             </td>
-            <td className="tdExpense">
-                <Label for="location">Location</Label>
-                <Input value={editFormData.location}
+            <td className="tdDepartment">
+                <Label for="shortName">ShortName</Label>
+                <Input value={editFormData.shortName}
                        style={{width: 100}}
                        type="text"
-                       name="location"
+                       name="shortName"
                        required="required"
-                       placeholder="Enter location...."
-                       id="location"
+                       placeholder="Enter shortName...."
+                       id="shortName"
                        onChange={handleEditFormChange}
                 />
             </td>
