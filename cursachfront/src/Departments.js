@@ -43,16 +43,9 @@ export default class Departments extends Component {
 
         this.state = {
             isLoading: false,
-            Categories: [],
-            Expenses: [],
-            FilteredExpenses: [],
-            Options: [],
-            date: new Date(),
-            startdate: null,
-            enddate: null,
+            Departments: [],
             item: this.emptyItem,
-            editExpenseId: null,
-            filterCategory: 'All',
+            editDepartmentsId: null
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
