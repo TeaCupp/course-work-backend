@@ -6,8 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
-import ReadOnlyRow from "./components/ReadOnlyRow";
-import EditableRow from "./components/EditableRow";
+import ReadOnlyRow from "./DepartmentComponents/ReadOnlyRow";
+import EditableRow from "./DepartmentComponents/EditableRow";
 
 
 
