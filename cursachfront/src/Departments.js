@@ -107,20 +107,7 @@ export default class Departments extends Component {
             this.setState({Departments: updatedDepartments});
         });
     }
-
-    filterCategoryChange = (event) => {
-        const target = event.target;
-        console.log(target.value);
-        if (target.value === 'All') {
-            this.state.filterCategory = 'All';
-            this.updateFilteredExpenses();
-            return;
-        }
-        const value = parseInt(target.value, 10);
-        this.state.filterCategory = value;
-
-        this.updateFilteredExpenses();
-    }
+    
 
 
     render() {
