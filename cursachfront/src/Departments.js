@@ -163,9 +163,10 @@ export default class Departments extends Component {
                 <Container>
                     <Table className="app-container">
                         <thead>
-                        <tr className="trHead">
+                            <tr className="trHead">
                             <th className="thHead">Name</th>
                             <th className="thHead">ShortName</th>
+                            <th className="thHead"> Actions</th>
                         </tr>
                         </thead>
                         <tbody>
