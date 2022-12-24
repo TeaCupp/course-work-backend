@@ -84,62 +84,7 @@ export default class Departments extends Component {
         console.log(item);
     }
 
-    handleCategoryChange(event) {
-        const target = event.target;
-        const value = parseInt(target.value, 10);
-        let item = {...this.state.item};
-        console.log(this.state.Categories);
-        const category = this.state.Categories.find(category => category.id === value);
-        item['category'] = {id: value, name: category.name};
-        this.setState({item});
-    }
-
-    handleOptionChange(event) {
-        const target = event.target;
-        const value = parseInt(target.value, 10);
-        let item = {...this.state.item};
-        console.log(this.state.Options);
-        const option = this.state.Options.find(option => option.id === value);
-        item['option'] = {id: value, name: option.name};
-        this.setState({item});
-    }
-
-    handleDateChange(date) {
-        let item = {...this.state.item};
-        item.expensedate = date;
-        this.setState({...this.state, item: item});
-    }
-
-    handleStartDateChange(startdate) {
-        console.log(startdate);
-        this.state.startdate = startdate;
-        console.log(this.state)
-        this.updateFilteredExpenses();
-    }
-
-    handleEndDateChange(enddate) {
-        this.state.enddate = enddate;
-        this.updateFilteredExpenses();
-    }
-
-    updateFilteredExpenses()
-    {
-        let filteredExpenses = this.state.Expenses;
-        if (this.state?.startdate) {
-            filteredExpenses = filteredExpenses
-                .filter(expense => new Date(expense.expensedate.toLocaleString()) >= this.state.startdate);
-        }
-        console.log(filteredExpenses);
-        if (this.state?.enddate) {
-            filteredExpenses = filteredExpenses
-                .filter(expense => new Date(expense.expensedate.toLocaleString()) <= this.state.enddate);
-        }
-        console.log(this.state.filterCategory);
-        if (this.state.filterCategory !== 'All') {
-            filteredExpenses = filteredExpenses.filter(expense => expense.category.id === this.state.filterCategory);
-        }
-        this.setState({...this.state, FilteredExpenses: filteredExpenses})
-    }
+    
 
 
     async componentDidMount() {
