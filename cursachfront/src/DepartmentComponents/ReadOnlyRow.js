@@ -6,7 +6,7 @@ const ReadOnlyRow = ({ department, handleSubmit, remove }) => {
     return (
         <tr className="trExpense">
             <td className="tdExpense">{department.name}</td>
-            <td className="tdExpense">{department.shortName}</td>
+            <td className="tdExpense">{department.short_name}</td>
 
 
 

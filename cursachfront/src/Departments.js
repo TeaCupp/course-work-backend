@@ -18,7 +18,7 @@ export default class Departments extends Component {
 
     emptyItem = {
         name: '',
-        shortName: ''
+        short_name: ''
     }
 
     handleEdit = (event, department) => {
@@ -143,9 +143,9 @@ export default class Departments extends Component {
 
                         <div className="row">
                             <FormGroup className={"col-md-4 mb-3"}>
-                                <Label for="shortName">ShortName</Label>
-                                <Input type="text" name="shortName" required="required"
-                                       placeholder="Enter ShortName...." id="shortName" onChange={this.handleChange}/>
+                                <Label for="short_name">ShortName</Label>
+                                <Input type="text" name="short_name" required="required"
+                                       placeholder="Enter ShortName...." id="short_name" onChange={this.handleChange}/>
                             </FormGroup>
                         </div>
 
