@@ -138,25 +138,8 @@ export default class Departments extends Component {
                                    onChange={this.handleChange} autoComplete="name"/>
                         </FormGroup>
 
-                        <FormGroup>
-                            <Label for="category">Category</Label>
-                            <select onChange={this.handleCategoryChange}>
-                                {optionList1}
-                            </select>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label for="option">Purchase or receipt</Label>
-                            <select onChange={this.handleOptionChange}>
-                                {optionList2}
-                            </select>
-                        </FormGroup>
 
 
-                        <FormGroup>
-                            <Label for="city">Date</Label>
-                            <DatePicker selected={this.state.item.expensedate} onChange={this.handleDateChange}/>
-                        </FormGroup>
 
                         <div className="row">
                             <FormGroup className={"col-md-4 mb-3"}>
@@ -166,14 +149,7 @@ export default class Departments extends Component {
                             </FormGroup>
                         </div>
 
-                        <div className="row">
-                            <FormGroup className={"col-md-4 mb-3"}>
-                                <Label for="expenses">Expense</Label>
-                                <Input type="text" name="sum" required="required"
-                                       placeholder="Enter expense sum...." id="expenses"
-                                       onChange={this.handleChange}/>
-                            </FormGroup>
-                        </div>
+
 
                         <FormGroup>
                             <Button color="primary" type="submit">Save</Button>{' '}
