@@ -6,6 +6,85 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
+
+class Departments extends Component {
+    state = {
+        isLoading : true,
+        departments : []
+    }
+
+
+
+    render() {
+        const title = <h2>Add Departments</h2>
+        return (
+            <div>
+                <AppNav/>
+                <Container>
+                    {title}
+                    <FormGroup>
+                        <label for="title">Departments name</label>
+                        <input type="text" name="department" id="name" onChange={this.handleChange}/>
+                    </FormGroup>
+
+
+                    <FormGroup>
+                    <label for="title">Departments short name</label>
+                    <input type="text" name="short_name" id="short_name" onChange={this.handleChange}/>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Button color="primary" type="submit">Save</Button>
+                        <Button color="secondary" tag={Link} to="/">Cancel</Button>
+                    </FormGroup>
+
+                </Container>
+            </div>
+        );
+    }
+}
+
+export default Departments;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React, {Component, Fragment} from "react";
+import AppNav from "./AppNav";
+import DatePicker from 'react-datepicker';
+import './App.css'
+import "react-datepicker/dist/react-datepicker.css";
+import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
+import {Link} from "react-router-dom";
+import {Helmet} from "react-helmet";
 import DepartmentReadOnlyRow from "./DepartmentComponents/DepartmentReadOnlyRow";
 import DepartmentEditableRow from "./DepartmentComponents/DepartmentEditableRow";
 
@@ -62,17 +141,17 @@ class Departments extends Component {
 
 
     async handleSubmitDepartment(event) {
-        const item = this.state.item;
+        const itemDepartment = this.state.itemDepartment;
 
         console.log('POST');
-        console.log(item);
+        console.log(itemDepartment);
         await fetch('/api/departments', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(item),
+            body: JSON.stringify(itemDepartment),
         });
 
         event.preventDefault();
@@ -85,10 +164,10 @@ class Departments extends Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        let item = {...this.state.item};
-        item[name] = value;
-        this.setState({item});
-        console.log(item);
+        let itemDepartment = {...this.state.itemDepartment};
+        itemDepartment[name] = value;
+        this.setState({itemDepartment});
+        console.log(itemDepartment);
     }
 
 
@@ -240,3 +319,5 @@ class Departments extends Component {
 }
 
 export default Departments;
+
+ */
