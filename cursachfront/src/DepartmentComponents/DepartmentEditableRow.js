@@ -26,13 +26,13 @@ const DepartmentEditableRow = ({
 
     const handleEditSubmitDepartment = async () => {
 
-        await fetch(`/api/departments/${editFormDataDepartment.id}`, {
+        await fetch(`/api/department/${editFormDataDepartment.id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({...editFormDataDepartment,name: editFormDataDepartment.departments}),
+            body: JSON.stringify({...editFormDataDepartment}),
         });
 
         console.log("Edit request is sent!!!");

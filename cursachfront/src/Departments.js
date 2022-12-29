@@ -177,7 +177,7 @@ class Departments extends Component {
 
     async removeDepartment(id) {
         console.log(id);
-        await fetch(`/api/departments/${id}`, {
+        await fetch(`/api/department/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -264,40 +264,6 @@ class Departments extends Component {
                     </Table>
                 </Container>
 
-
-
-
-
-                <Container>
-                    {title}
-                    <Form onSubmit={this.handleSubmitDepartment}>
-                        <FormGroup>
-                            <Label for="name">Name</Label>
-                            <Input type="name" name="name" required="name"
-                                   placeholder="Enter name...." id="name"
-                                   onChange={this.handleChange} autoComplete="name"/>
-                        </FormGroup>
-
-
-
-
-                        <div className="row">
-                            <FormGroup className={"col-md-4 mb-3"}>
-                                <Label for="short_name">Short name</Label>
-                                <Input type="short_name" name="short_name" required="required"
-                                       placeholder="Enter short name...." id="short_name" onChange={this.handleChange}/>
-                            </FormGroup>
-                        </div>
-
-
-                        <FormGroup>
-                            <Button color="primary" type="submit">Save</Button>{' '}
-                            <Button color="secondary" tag={Link} to="/">Cancel</Button>{' '}
-                        </FormGroup>
-
-                    </Form>
-                </Container>
-                }
                 <Helmet>
                     <style>{'body { background-color: lightcyan; }'}</style>
                 </Helmet>
