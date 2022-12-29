@@ -3,9 +3,8 @@ import AppNav from "./AppNav";
 import DatePicker from 'react-datepicker';
 import './App.css'
 import "react-datepicker/dist/react-datepicker.css";
-import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
+import {Button, Input, Label, Container, FormGroup} from "reactstrap";
 import {Link} from "react-router-dom";
-import {Helmet} from "react-helmet";
 
 
 class Schedules extends Component {
@@ -15,7 +14,20 @@ class Schedules extends Component {
         schedules : []
     }
 
+
+    async componentDidMount() {
+        const response = await fetch('/api/classrooms');
+        const body = await response.json();
+        this.setState({schedules : body, isLoading : false});
+    }
+
+
     render() {
+        const {isLoading} = this.setState();
+
+        if(isLoading)
+            return(<div>Loading....</div>)
+
         const title = <h2>Add Schedule </h2>
         return (
             <div>

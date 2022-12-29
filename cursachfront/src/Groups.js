@@ -10,13 +10,34 @@ import {Helmet} from "react-helmet";
 class Groups extends Component {
     state = {
         isLoading : true,
-        groups : []
+        Groups : [],
+        Courses : []
     }
+
+    async componentDidMount() {
+        const response = await fetch('/api/courses');
+        const body = await response.json();
+        this.setState({Courses : body, isLoading : false});
+    }
+
 
 
 
     render() {
         const title = <h2>Add Group </h2>
+        const {Courses} = this.setState();
+        const {isLoading} = this.state;
+
+        if(isLoading)
+            return(<div>Loading....</div>)
+
+        let optionList5 =
+            Courses.map((course) =>
+                <option value={course.id} key={course.id}>
+                    {course.name}
+                </option>
+            );
+
         return (
             <div>
                 <AppNav/>
@@ -29,8 +50,9 @@ class Groups extends Component {
 
                     <FormGroup>
                         <Label for="course">Course</Label>
-                        <Input type="text" neme="course" id="course"
-                               onChange={this.handleChange}/>
+                        <select onChange={this.handleCategoryChange}>
+                        {optionList5}
+                        </select>
                     </FormGroup>
 
                     <FormGroup>

@@ -169,6 +169,7 @@ export default class Expenses extends Component {
         const responseExp = await fetch('/api/expenses');
         const bodyExp = await responseExp.json();
         this.setState({Expenses: bodyExp, isLoading: false});
+
         const responseOpt = await fetch('/api/options');
         const bodyOpt = await responseOpt.json();
         this.setState({Options: bodyOpt, isLoading: false});

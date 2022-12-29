@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+/*import React, {Component, Fragment} from "react";
 import AppNav from "./AppNav";
 import DatePicker from 'react-datepicker';
 import './App.css'
@@ -45,6 +45,7 @@ class Departments extends Component {
 }
 
 export default Departments;
+*/
 
 
 
@@ -76,10 +77,8 @@ export default Departments;
 
 
 
-
-/* import React, {Component, Fragment} from "react";
+import React, {Component, Fragment} from "react";
 import AppNav from "./AppNav";
-import DatePicker from 'react-datepicker';
 import './App.css'
 import "react-datepicker/dist/react-datepicker.css";
 import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
@@ -91,9 +90,6 @@ import DepartmentEditableRow from "./DepartmentComponents/DepartmentEditableRow"
 
 
 class Departments extends Component {
-
-
-
     emptyItemDepartment = {
         name: '',
         short_name: ''
@@ -119,8 +115,6 @@ class Departments extends Component {
     }
 
 
-
-
     constructor(props) {
         super(props)
 
@@ -134,7 +128,6 @@ class Departments extends Component {
         this.handleSubmitDepartment = this.handleSubmitDepartment.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.removeDepartment = this.removeDepartment.bind(this);
-        this.handleEditDepartment = this.handleEditDepartment.bind(this);
     }
 
 
@@ -177,7 +170,6 @@ class Departments extends Component {
         const responseDep = await fetch('/api/departments');
         const bodyDep = await responseDep.json();
         this.setState({Departments: bodyDep, isLoading: false});
-
     }
 
 
@@ -191,10 +183,10 @@ class Departments extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(() => {
-            let updatedDepartments = [...this.state.Departments].filter(i => i.id !== id);
-            this.setState({Departments: updatedDepartments});
         });
+
+        let updatedDepartments = [...this.state.Departments].filter(i => i.id !== id);
+        this.setState({Departments: updatedDepartments});
     }
 
 
@@ -210,10 +202,7 @@ class Departments extends Component {
             return (<div>Loading....</div>)
 
         return (
-
-
             <div>
-
                 <AppNav/>
                 <Container>
                     {title}
@@ -261,12 +250,12 @@ class Departments extends Component {
                             <Fragment key={k}>
                                 {
                                     this.state.editDepartmentId === department.id ? (
-                                        <DepartmentEditableRow handleSubmit={this.handleSubmitDepartment()}
-                                                     cancelEdit={this.cancelEditDepartment()}
+                                        <DepartmentEditableRow handleSubmitDepartment={this.handleSubmitDepartment}
+                                                     cancelEditDepartment={this.cancelEditDepartment}
                                                      department={department}/>
                                     ) : (
-                                        <DepartmentReadOnlyRow department={department} handleSubmit={this.handleEditDepartment()}
-                                                     remove={this.removeDepartment()}/>
+                                        <DepartmentReadOnlyRow department={department} handleSubmitDepartment={this.handleEditDepartment}
+                                                     removeDepartment={this.removeDepartment}/>
                                     )
                                 }
                             </Fragment>
@@ -320,4 +309,3 @@ class Departments extends Component {
 
 export default Departments;
 
- */

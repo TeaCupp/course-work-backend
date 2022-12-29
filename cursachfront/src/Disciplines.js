@@ -15,7 +15,7 @@ class Disciplines extends Component {
     }
 
     async componentDidMount() {
-        
+        const response = await fetch('/api')
     }
 
 

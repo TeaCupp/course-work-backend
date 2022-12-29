@@ -48,51 +48,38 @@ const DepartmentEditableRow = ({
         short_name: department.short_name
     });
 
-
-
-
-
-
-
-
-
     return (
+        <tr className="trDepartment">
+            <td className="tdDepartment">
+                <Label for="name">Name</Label>
+                <Input value={editFormDataDepartment.name}
+                       type="name"
+                       name="name"
+                       required="required"
+                       placeholder="Enter name...."
+                       id="name"
+                       onChange={handleEditFormChangeDepartment}
+                       autoComplete="name"
+                />
+            </td>
+            <td className="tdDepartment">
+                <Label for="short_name">Short name</Label>
+                <Input value={editFormDataDepartment.short_name}
+                       style={{width: 100}}
+                       type="text"
+                       name="short_name"
+                       required="required"
+                       placeholder="Enter short name...."
+                       id="short_name"
+                       onChange={handleEditFormChangeDepartment}
+                />
+            </td>
 
-
-        <div className="tableDepartment">
-            <tr className="trDepartment">
-                <td className="tdDepartment">
-                    <Label for="name">Name</Label>
-                    <Input value={editFormDataDepartment.name}
-                           type="name"
-                           name="name"
-                           required="required"
-                           placeholder="Enter name...."
-                           id="name"
-                           onChange={handleEditFormChangeDepartment}
-                           autoComplete="name"
-                    />
-                </td>
-                <td className="tdDepartment">
-                    <Label for="short_name">Short name</Label>
-                    <Input value={editFormDataDepartment.short_name}
-                           style={{width: 100}}
-                           type="text"
-                           name="short_name"
-                           required="required"
-                           placeholder="Enter short name...."
-                           id="short_name"
-                           onChange={handleEditFormChangeDepartment}
-                    />
-                </td>
-
-                <td className="tdDepartment">
-                    <Button color="primary" onClick={handleEditSubmitDepartment}>Save</Button>{' '}
-                    <Button onClick={cancelEditDepartment} color="secondary">Cancel</Button>{' '}
-                </td>
-            </tr>
-        </div>
-
+            <td className="tdDepartment">
+                <Button color="primary" onClick={handleEditSubmitDepartment}>Save</Button>{' '}
+                <Button onClick={cancelEditDepartment} color="secondary">Cancel</Button>{' '}
+            </td>
+        </tr>
     );
 };
 

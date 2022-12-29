@@ -1,17 +1,9 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import AppNav from "./AppNav";
-import DatePicker from 'react-datepicker';
 import './App.css'
 import "react-datepicker/dist/react-datepicker.css";
-import {Button, Input, Label, Container, Form, FormGroup, Table} from "reactstrap";
+import {Button, Container, FormGroup} from "reactstrap";
 import {Link} from "react-router-dom";
-import {Helmet} from "react-helmet";
-import Students from "./Students";
-
-
-
-
-
 
 class Teachers extends Component {
     state = {
